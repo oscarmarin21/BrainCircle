@@ -1,4 +1,4 @@
-package co.edu.uniquindio.braincircle;
+package co.edu.uniquindio.braincircle.controlers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
