@@ -1,21 +1,21 @@
 package co.edu.uniquindio.braincircle.Nodo;
 
+import co.edu.uniquindio.braincircle.models.Contenido;
+
 public class NodoContenido<T> {
-    private T dato;
+    private Contenido<T> dato;
     private NodoContenido<T> izquierda;
     private NodoContenido<T> derecha;
 
-    public NodoContenido(T dato) {
+    public NodoContenido(Contenido<T> dato) {
         this.dato = dato;
-        this.izquierda = null;
-        this.derecha = null;
     }
 
-    public T getDato() {
+    public Contenido<T> getDato() {
         return dato;
     }
 
-    public void setDato(T dato) {
+    public void setDato(Contenido<T> dato) {
         this.dato = dato;
     }
 
