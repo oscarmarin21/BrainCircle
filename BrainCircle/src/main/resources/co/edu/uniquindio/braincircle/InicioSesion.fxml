@@ -24,19 +24,19 @@
                 <Image url="@img/user.png" />
             </image>
         </ImageView>
-        <TextField alignment="CENTER" layoutX="100.0" layoutY="202.0" prefHeight="27.0" prefWidth="200.0" promptText="Correo Electrónico" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+        <TextField alignment="CENTER" layoutX="83.0" layoutY="202.0" prefHeight="29.0" prefWidth="239.0" promptText="Correo Electrónico" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
         </TextField>
-        <PasswordField alignment="CENTER" layoutX="100.0" layoutY="244.0" prefHeight="25.0" prefWidth="200.0" promptText="Contraseña" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+        <PasswordField alignment="CENTER" layoutX="83.0" layoutY="244.0" prefHeight="29.0" prefWidth="239.0" promptText="Contraseña" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </PasswordField>
-        <Button layoutX="152.0" layoutY="292.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #010035;" text="Iniciar Sesion" textFill="#c1ff72">
+        <Button layoutX="149.0" layoutY="291.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #010035;" text="Iniciar Sesion" textFill="#c1ff72">
             <font>
-                <Font size="14.0" />
+                <Font name="Candara" size="14.0" />
             </font>
         </Button>
         <Label alignment="CENTER" layoutX="161.0" layoutY="166.0" text="Bienvenido " textFill="#010035">
