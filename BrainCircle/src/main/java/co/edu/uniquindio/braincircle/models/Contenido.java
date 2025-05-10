@@ -1,14 +1,16 @@
 package co.edu.uniquindio.braincircle.models;
 
-public class Contenido<T>{
-    private T id;
+import java.util.UUID;
+
+public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<T>> {
+    private T idContenido;
     private T titulo;
     private T tema;
     private T tipo;
     private T autor;
 
     public Contenido(T id, T titulo, T tema, T tipo, T autor) {
-        this.id = id;
+        this.idContenido = id;
         this.titulo = titulo;
         this.tema = tema;
         this.tipo = tipo;
@@ -18,11 +20,11 @@ public class Contenido<T>{
     }
 
     public T getId() {
-        return id;
+        return idContenido;
     }
 
     public void setId(T id) {
-        this.id = id;
+        this.idContenido = id;
     }
 
     public T getTitulo() {
@@ -55,6 +57,18 @@ public class Contenido<T>{
 
     public void setAutor(T autor) {
         this.autor = autor;
+    }
+
+    public T generaridUsuario() {
+        this.idContenido = (T) UUID.randomUUID();
+        return idContenido;
+    }
+    @Override
+    public int compareTo(Contenido<T> otroContenido) {
+        if (this.idContenido == null || otroContenido.idContenido == null) {
+            throw new IllegalArgumentException("El idContenido no puede ser null");
+        }
+        return this.idContenido.compareTo(otroContenido.idContenido);
     }
 
 }

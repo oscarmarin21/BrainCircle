@@ -2,9 +2,13 @@ package co.edu.uniquindio.braincircle.Arbol;
 import co.edu.uniquindio.braincircle.Nodo.NodoContenido;
 import co.edu.uniquindio.braincircle.models.Contenido;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArbolBinarioContenido<T extends Comparable<T>> {
     private NodoContenido<T> raiz;
 
+    //AGREGAR CONTENIDO
     public void agregarContenido(Contenido<T> contenido) {
         raiz = agregarArbolContenido(raiz, contenido);
     }
@@ -17,15 +21,104 @@ public class ArbolBinarioContenido<T extends Comparable<T>> {
             nodo.setDerecha(agregarArbolContenido(nodo.getDerecha(), contenido));
         return nodo;
     }
-    public void cargarContenidos() {
-        cargarArbolContenidos(raiz);
+
+    //ACTUALIZAR CONTENIDO
+    public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor) {
+        return actualizarNodoPorIdArbol(raiz, idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+    }
+    private boolean actualizarNodoPorIdArbol(NodoContenido<T> nodo, T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor) {
+        if (nodo == null) return false;
+        int comparacion = idContenido.compareTo(nodo.getDato().getId());
+
+        if (comparacion == 0) {
+            nodo.getDato().setTitulo(nuevoTitulo);
+            nodo.getDato().setTema(nuevoTema);
+            nodo.getDato().setTipo(nuevoTipo);
+            nodo.getDato().setAutor(nuevoAutor);
+            return true;
+        } else if (comparacion < 0) {
+            return actualizarNodoPorIdArbol(nodo.getIzquierda(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+        } else {
+            return actualizarNodoPorIdArbol(nodo.getDerecha(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+        }
     }
 
-    private void cargarArbolContenidos(NodoContenido<T> nodo) {
+    //ELIMINAR CONTENIDO SEGUN LOS HIJOS
+    public boolean eliminarContenidoPorId(T idContenido) {
+        if (raiz == null) return false;
+        boolean[] eliminado = {false};
+        raiz = eliminarNodoPorIdArbol(raiz, idContenido, eliminado);
+        return eliminado[0];
+    }
+    private NodoContenido<T> eliminarNodoPorIdArbol(NodoContenido<T> nodo, T idContenido, boolean[] eliminado) {
+        if (nodo == null) return null;
+
+        int comparacion = idContenido.compareTo(nodo.getDato().getId());
+
+        if (comparacion < 0) {
+            nodo.setIzquierda(eliminarNodoPorIdArbol(nodo.getIzquierda(), idContenido, eliminado));
+        } else if (comparacion > 0) {
+            nodo.setDerecha(eliminarNodoPorIdArbol(nodo.getDerecha(), idContenido, eliminado));
+        } else {
+            // Nodo encontrado
+            eliminado[0] = true;
+
+            // Caso 1: sin hijos
+            if (nodo.getIzquierda() == null && nodo.getDerecha() == null) {
+                return null;
+            }
+            // Caso 2: un solo hijo
+            else if (nodo.getIzquierda() == null) {
+                return nodo.getDerecha();
+            } else if (nodo.getDerecha() == null) {
+                return nodo.getIzquierda();
+            }
+            // Caso 3: dos hijos
+            else {
+                NodoContenido<T> sucesor = encontrarMinimo(nodo.getDerecha());
+                nodo.setDato(sucesor.getDato());
+                nodo.setDerecha(eliminarNodoPorIdArbol(nodo.getDerecha(), sucesor.getDato().getId(), eliminado));
+            }
+        }
+        return nodo;
+    }
+    private NodoContenido<T> encontrarMinimo(NodoContenido<T> nodo) {
+        while (nodo.getIzquierda() != null) {
+            nodo = nodo.getIzquierda();
+        }
+        return nodo;
+    }
+
+    //CARGAR CONTENIDO GENERAL
+    public List<Contenido<T>> cargarContenidos() {
+        List<Contenido<T>> lista = new ArrayList<>();
+        cargarArbolContenidos(raiz, lista);
+        return lista;
+    }
+
+    private void cargarArbolContenidos(NodoContenido<T> nodo, List<Contenido<T>> lista) {
         if (nodo != null) {
-            cargarArbolContenidos(nodo.getIzquierda());
-            System.out.println(nodo.getDato());
-            cargarArbolContenidos(nodo.getDerecha());
+            cargarArbolContenidos(nodo.getIzquierda(), lista);
+            lista.add(nodo.getDato());
+            cargarArbolContenidos(nodo.getDerecha(), lista);
+        }
+    }
+
+    //CARGAR CONTENIDO POR ID
+    public Contenido<T> obtenerContenidoPorId(T idContenido) {
+        return buscarContenidoPorIdArbol(raiz, idContenido);
+    }
+    private Contenido<T> buscarContenidoPorIdArbol(NodoContenido<T> nodo, T idContenido) {
+        if (nodo == null) return null;
+
+        int comparacion = idContenido.compareTo(nodo.getDato().getId());
+
+        if (comparacion == 0) {
+            return nodo.getDato();
+        } else if (comparacion < 0) {
+            return buscarContenidoPorIdArbol(nodo.getIzquierda(), idContenido);
+        } else {
+            return buscarContenidoPorIdArbol(nodo.getDerecha(), idContenido);
         }
     }
 }

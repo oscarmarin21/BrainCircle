@@ -2,7 +2,7 @@ package co.edu.uniquindio.braincircle.Nodo;
 
 import co.edu.uniquindio.braincircle.models.Contenido;
 
-public class NodoContenido<T> {
+public class NodoContenido<T extends Comparable<T>> {
     private Contenido<T> dato;
     private NodoContenido<T> izquierda;
     private NodoContenido<T> derecha;
