@@ -15,11 +15,6 @@
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
-        <ImageView fitHeight="34.0" fitWidth="46.0" layoutX="14.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/logo5.png" />
-            </image>
-        </ImageView>
         <ScrollBar layoutX="383.0" layoutY="27.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="17.0" style="-fx-background-color: #ffffff;" />
       <Button layoutX="134.0" layoutY="334.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
          <font>
@@ -95,5 +90,10 @@
       <CheckBox layoutX="328.0" layoutY="176.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" />
       <CheckBox layoutX="328.0" layoutY="216.0" mnemonicParsing="false" />
       <CheckBox layoutX="328.0" layoutY="255.0" mnemonicParsing="false" />
+      <ImageView fitHeight="40.0" fitWidth="90.0" layoutX="10.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo6.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

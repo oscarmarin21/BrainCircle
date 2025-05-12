@@ -23,7 +23,7 @@
             <Font name="Candara" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="186.0" layoutY="98.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #c1ff72;" text="Abrir" textFill="#010035">
+      <Button layoutX="162.0" layoutY="98.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #ffffff;" text="Ver más" textFill="#010035">
          <font>
             <Font name="Candara" size="14.0" />
          </font>
