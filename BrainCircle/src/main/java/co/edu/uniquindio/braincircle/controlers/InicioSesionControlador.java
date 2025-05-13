@@ -16,9 +16,12 @@ public class InicioSesionControlador {
     @FXML
     private PasswordField txtPass;
 
-    private BrainCircle brainCircle = BrainCircle.getInstance();
+    private ControladorPrincipal controladorPrincipal;
 
+    public InicioSesionControlador()throws Exception {
+        controladorPrincipal = ControladorPrincipal.getInstancia();
 
+    }
     @FXML
     private void iniciarSesion() {
         String correo = txtCorreo.getText();
@@ -44,7 +47,7 @@ public class InicioSesionControlador {
 
     private boolean autenticarUsuario(String correo, String contrasena) {
         try {
-            return brainCircle.autenticar(correo, contrasena);
+            return controladorPrincipal.autenticar(correo, contrasena);
         } catch (RuntimeException e) {
             mostrarAlerta("error", e.getMessage());
         }
