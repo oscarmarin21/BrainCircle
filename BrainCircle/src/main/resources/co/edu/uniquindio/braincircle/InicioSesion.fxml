@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.InicioSesionControlador">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
+        <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="8.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/logo5.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="109.0" layoutX="152.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/user.png" />
+            </image>
+        </ImageView>
+        <TextField fx:id="txtCorreo" alignment="CENTER" layoutX="83.0" layoutY="202.0" prefHeight="29.0" prefWidth="239.0" promptText="Correo Electrónico" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+            <font>
+                <Font name="Candara Bold" size="14.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="txtPass" alignment="CENTER" layoutX="83.0" layoutY="244.0" prefHeight="29.0" prefWidth="239.0" promptText="Contraseña" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </PasswordField>
+        <Button onAction="#iniciarSesion" layoutX="149.0" layoutY="291.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #010035;" text="Iniciar Sesion" textFill="#c1ff72">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="161.0" layoutY="166.0" text="Bienvenido " textFill="#010035">
+            <font>
+                <Font name="Candara" size="16.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="54.0" fitWidth="90.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/logo4.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
