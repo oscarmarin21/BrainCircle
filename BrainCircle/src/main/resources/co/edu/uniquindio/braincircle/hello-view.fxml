@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="co.edu.uniquindio.braincircle.controlers.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
-
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane prefHeight="300.0" prefWidth="402.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.InicioSesionControlador">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="255.0" stroke="#010035" strokeType="INSIDE" width="402.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="309.0" stroke="#c1ff72" strokeType="INSIDE" width="402.0" />
+        <Button layoutX="83.0" layoutY="202.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #010035;" text="Iniciar Sesion" textFill="#c1ff72">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="153.0" layoutY="158.0" text="Bienvenido " textFill="#010035">
+            <font>
+                <Font name="Candara" size="20.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="133.0" fitWidth="138.0" layoutX="134.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/brain circle.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="221.0" layoutY="202.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #010035;" text="Registrarse" textFill="#c1ff72">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="70.0" layoutY="270.0" text="¡La Mejor Red Social Educativa!" textFill="#c1ff72">
+            <font>
+                <Font name="Candara" size="20.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
