@@ -52,7 +52,7 @@ public class HelloApplication extends Application {
         } else {
             System.out.println("Contenido no encontrado.");
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PublicacionesPag.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);
         stage.setTitle("Hello!");
         stage.setScene(scene);

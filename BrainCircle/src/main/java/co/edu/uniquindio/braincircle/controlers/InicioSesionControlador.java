@@ -1,6 +1,7 @@
 package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.models.BrainCircle;
+import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -20,28 +21,29 @@ public class InicioSesionControlador {
 
     public InicioSesionControlador()throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
-
     }
     @FXML
     private void iniciarSesion() {
         String correo = txtCorreo.getText();
         String contrasena = txtPass.getText();
-
         if (correo == null || correo.trim().isEmpty()) {
-            mostrarAlerta("Error", "Ingrese su correo electrónico.");
+            controladorPrincipal.mostrarMensaje("Error", "Ingrese su correo electrónico.",AlertType.ERROR);
             return;
         }
 
         if (contrasena == null || contrasena.trim().isEmpty()) {
-            mostrarAlerta("Error", "Ingrese su contraseña.");
+            controladorPrincipal.mostrarMensaje("Error", "Ingrese su contraseña.",AlertType.ERROR);
             return;
         }
 
         if (autenticarUsuario(correo, contrasena)) {
-            mostrarAlerta("Éxito", "Inicio de sesión exitoso.");
-            // Aquí puedes navegar a otra pantalla o cerrar la ventana de inicio de sesión.
+            controladorPrincipal.mostrarMensaje("Éxito", "Inicio de sesión exitoso.",AlertType.INFORMATION);
+            Usuario user = controladorPrincipal.ObtenerUserAutenticado(txtCorreo.getText(),txtPass.getText());
+            if(user != null){
+                controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml","Inicio Estudiante",user.getId());
+            }
         } else {
-            mostrarAlerta("Error", "Correo o contraseña incorrectos.");
+            controladorPrincipal.mostrarMensaje("Error", "Correo o contraseña incorrectos.",AlertType.ERROR);
         }
     }
 
@@ -49,16 +51,10 @@ public class InicioSesionControlador {
         try {
             return controladorPrincipal.autenticar(correo, contrasena);
         } catch (RuntimeException e) {
-            mostrarAlerta("error", e.getMessage());
+            controladorPrincipal.mostrarMensaje("Error",  e.getMessage(),AlertType.ERROR);
         }
         return false;
     }
 
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alerta = new Alert(AlertType.INFORMATION);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensaje);
-        alerta.showAndWait();
-    }
+
 }

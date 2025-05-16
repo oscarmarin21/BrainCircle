@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.InicioEstudiantesControlador">
+<AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
@@ -64,13 +63,12 @@
                 <Image url="@img/logo6.png" />
             </image>
         </ImageView>
-      <ScrollBar layoutX="387.0" layoutY="27.0" orientation="VERTICAL" prefHeight="350.0" prefWidth="14.0" style="-fx-background-color: #ffffff;" />
-      <Button layoutX="335.0" layoutY="389.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
-         <font>
-            <Font name="Candara" size="14.0" />
-         </font>
-      </Button>
-        <GridPane fx:id="gridPaneEventos" alignment="CENTER" hgap="10.0" layoutY="67.0" vgap="10.0">
-        </GridPane>
+        <ScrollBar layoutX="387.0" layoutY="27.0" orientation="VERTICAL" prefHeight="350.0" prefWidth="14.0" style="-fx-background-color: #ffffff;" />
+        <Button layoutX="335.0" layoutY="389.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035" onAction="#añadirMiPublicacon">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
+
     </children>
 </AnchorPane>

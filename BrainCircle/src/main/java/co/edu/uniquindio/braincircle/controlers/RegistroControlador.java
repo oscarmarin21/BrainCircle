@@ -2,6 +2,7 @@ package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.models.BrainCircle;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 
@@ -47,7 +48,7 @@ public class RegistroControlador {
             limpiarCampos();
             controladorPrincipal.mostrarMensaje("Correto","¡Registro exitoso!", Alert.AlertType.INFORMATION);
             controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioSesion.fxml","Inica Sesión", (Object) null);
-            controladorPrincipal.cerrarVentana(null);
+            controladorPrincipal.cerrarVentana((Node) event.getSource());
         } else {
             controladorPrincipal.mostrarMensaje("Error","algo a salido mal en el registro. intentalo nuevamente.", Alert.AlertType.ERROR);
             limpiarCampos();

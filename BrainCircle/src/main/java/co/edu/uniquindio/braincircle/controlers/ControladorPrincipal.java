@@ -5,6 +5,7 @@ import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.BrainCircle;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -119,6 +120,11 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     @Override
     public Contenido obtenerContenidoPorId(Comparable idContenido) {
         return brainCircle.obtenerContenidoPorId(idContenido);
+    }
+
+    @Override
+    public Usuario ObtenerUserAutenticado(String correo, String clave) {
+        return brainCircle.ObtenerUserAutenticado(correo,clave);
     }
 
 

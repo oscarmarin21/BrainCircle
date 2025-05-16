@@ -1,6 +1,7 @@
 package co.edu.uniquindio.braincircle.Services;
 
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Usuario;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface ServicioBrainCircle<T extends Comparable<T>> {
     public boolean eliminarContenidoPorId(T idContenido);
     public List<Contenido<T>> cargarContenidos();
     public Contenido<T> obtenerContenidoPorId(T idContenido);
+    public  Usuario ObtenerUserAutenticado(String correo, String clave) ;
 }

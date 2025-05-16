@@ -27,7 +27,7 @@
             <Font name="Candara" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+      <Button layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035" onAction="#abrirPublicaciones">
          <font>
             <Font name="Candara" size="14.0" />
          </font>
