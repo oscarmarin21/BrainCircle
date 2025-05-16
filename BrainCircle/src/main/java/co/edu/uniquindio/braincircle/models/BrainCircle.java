@@ -1,27 +1,24 @@
 package co.edu.uniquindio.braincircle.models;
 
+import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrainCircle {
-    private static BrainCircle instance;
-
+public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircle {
     private List<Usuario> usuarios;
-
+    private List<Contenido> contenido;
+    private ArbolBinarioContenido arbolBinarioContenido;
     // Constructor privado para evitar instanciación externa
-    private BrainCircle() {
+    public BrainCircle() {
         this.usuarios = new ArrayList<>();
+        this.contenido = new ArrayList<>();
+        this.arbolBinarioContenido = new ArbolBinarioContenido();
     }
 
     // Método para obtener la instancia única
-    public static synchronized BrainCircle getInstance() {
-        if (instance == null) {
-            instance = new BrainCircle();
-        }
-        return instance;
-    }
 
     public boolean autenticar(String correo, String clave) {
         for (Usuario u : usuarios) {
@@ -46,4 +43,30 @@ public class BrainCircle {
         usuarios.add(estudiante);
         return true;
     }
+    public Usuario ObtenerUserAutenticado(String correo, String clave) {
+        for (Usuario u : usuarios) {
+            if (u.getCorreo().equals(correo) && u.getContraseña().equals(clave)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public void agregarContenido(Contenido contenido) {
+        arbolBinarioContenido.agregarContenido(contenido);
+    }
+
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
+        return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor);
+    }
+    public boolean eliminarContenidoPorId(Comparable idContenido){
+        return arbolBinarioContenido.eliminarContenidoPorId(idContenido);
+    }
+    public List<Contenido<T>> cargarContenidos(){
+        return arbolBinarioContenido.cargarContenidos();
+    }
+    public Contenido<T> obtenerContenidoPorId(Comparable idContenido) {
+        return arbolBinarioContenido.obtenerContenidoPorId(idContenido);
+    }
+
 }

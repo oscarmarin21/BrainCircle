@@ -2,6 +2,7 @@ package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.models.BrainCircle;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 
@@ -22,7 +23,11 @@ public class RegistroControlador {
     @FXML
     private PasswordField txtPass;
 
-    private BrainCircle brainCircle = BrainCircle.getInstance();
+    private ControladorPrincipal controladorPrincipal;
+
+    public RegistroControlador()throws Exception {
+        controladorPrincipal = ControladorPrincipal.getInstancia();
+    }
 
     @FXML
     private void handleRegistrarse(ActionEvent event) {
@@ -34,26 +39,20 @@ public class RegistroControlador {
 
         // Validación básica de campos
         if (id.isEmpty() || nombreUsuario.isEmpty() || correo.isEmpty() || tel.isEmpty() || pass.isEmpty()) {
-            mostrarMensaje("Error","Por favor, completa todos los campos.");
+            controladorPrincipal.mostrarMensaje("Error","Por favor, completa todos los campos.", Alert.AlertType.WARNING);
             limpiarCampos();
             return;
         }
 
-        if (brainCircle.registrar(id, nombreUsuario, correo, tel, pass)) {
-            mostrarMensaje("Correto","¡Registro exitoso!");
+        if (controladorPrincipal.registrar(id, nombreUsuario, correo, tel, pass)) {
             limpiarCampos();
+            controladorPrincipal.mostrarMensaje("Correto","¡Registro exitoso!", Alert.AlertType.INFORMATION);
+            controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioSesion.fxml","Inica Sesión", (Object) null);
+            controladorPrincipal.cerrarVentana((Node) event.getSource());
         } else {
-            mostrarMensaje("Error","algo a salido mmal en el registro. intentalo nuevamente.");
+            controladorPrincipal.mostrarMensaje("Error","algo a salido mal en el registro. intentalo nuevamente.", Alert.AlertType.ERROR);
             limpiarCampos();
         }
-    }
-
-    private void mostrarMensaje(String titulo, String mensaje) {
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensaje);
-        alerta.showAndWait();
     }
 
     private void limpiarCampos() {

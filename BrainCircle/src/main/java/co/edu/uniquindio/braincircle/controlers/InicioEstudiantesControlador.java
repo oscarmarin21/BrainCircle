@@ -1,20 +1,13 @@
 package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
-import co.edu.uniquindio.braincircle.models.Contenido;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.geometry.Insets;
+import javafx.scene.Node;
 
-import java.util.List;
-
-public class PublicacionesControlador implements Parametrizable {
+public class InicioEstudiantesControlador implements Parametrizable {
     private ControladorPrincipal controladorPrincipal;
 
-    public PublicacionesControlador()throws Exception {
+    public InicioEstudiantesControlador()throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
     }
     private String idUsuario;
@@ -29,8 +22,8 @@ public class PublicacionesControlador implements Parametrizable {
         System.out.println("✅ Usuario autenticado con ID: " + idUsuario);
     }
 
-
-    public void añadirMiPublicacon(ActionEvent actionEvent) {
-        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/AñadirPublicación.fxml", "Mipublicación", idUsuario);
+    public void abrirPublicaciones(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml","Publicaciones", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 }
