@@ -1,3 +1,4 @@
+
 package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBrainCircle {
     private final BrainCircle brainCircle;
@@ -93,15 +95,31 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
         return brainCircle.registrar(id, nombre, correo, telefono, pass);
     }
 
-//    @Override
-//    public void agregarContenido(T contenido) {
-//        brainCircle.agregarContenido(contenido);
-//    }
+    @Override
+    public void agregarContenido(Contenido contenido) {
+        brainCircle.agregarContenido(contenido);
+    }
 
 
-//    @Override
-//    public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor) {
-//        brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
-//    }
+    @Override
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
+        return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+    }
+
+    @Override
+    public boolean eliminarContenidoPorId(Comparable idContenido) {
+        return brainCircle.eliminarContenidoPorId(idContenido);
+    }
+
+    @Override
+    public List<Contenido> cargarContenidos() {
+        return brainCircle.cargarContenidos();
+    }
+
+    @Override
+    public Contenido obtenerContenidoPorId(Comparable idContenido) {
+        return brainCircle.obtenerContenidoPorId(idContenido);
+    }
+
 
 }

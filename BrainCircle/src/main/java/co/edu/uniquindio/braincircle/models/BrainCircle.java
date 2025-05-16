@@ -7,14 +7,15 @@ import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrainCircle<T extends Comparable<T>> implements ServicioBrainCircle {
+public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircle {
     private List<Usuario> usuarios;
-    private T contenido;
+    private List<Contenido> contenido;
     private ArbolBinarioContenido arbolBinarioContenido;
     // Constructor privado para evitar instanciación externa
     public BrainCircle() {
         this.usuarios = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+        this.contenido = new ArrayList<>();
+        this.arbolBinarioContenido = new ArbolBinarioContenido();
     }
 
     // Método para obtener la instancia única
@@ -42,12 +43,21 @@ public class BrainCircle<T extends Comparable<T>> implements ServicioBrainCircle
         usuarios.add(estudiante);
         return true;
     }
-//    public void agregarContenido(Contenido contenido) {
-//        arbolBinarioContenido.agregarContenido(contenido);
-//    }
-//
-//    public boolean actualizarContenido( String idContenido, String nuevoTitulo, nuevoTema, T nuevoTipo, T nuevoAutor) {
-//        return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor);
-//    }
+    public void agregarContenido(Contenido contenido) {
+        arbolBinarioContenido.agregarContenido(contenido);
+    }
+
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
+        return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor);
+    }
+    public boolean eliminarContenidoPorId(Comparable idContenido){
+        return arbolBinarioContenido.eliminarContenidoPorId(idContenido);
+    }
+    public List<Contenido<T>> cargarContenidos(){
+        return arbolBinarioContenido.cargarContenidos();
+    }
+    public Contenido<T> obtenerContenidoPorId(Comparable idContenido) {
+        return arbolBinarioContenido.obtenerContenidoPorId(idContenido);
+    }
 
 }
