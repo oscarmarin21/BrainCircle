@@ -178,6 +178,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
         nuevoContenido.setTema(tema);
         nuevoContenido.setTipo(tipoSeleccionado);
         nuevoContenido.setAutor(idUsuario);
+        nuevoContenido.setConte(contenidoFinal);
 
         controladorPrincipal.agregarContenido(nuevoContenido);
 
@@ -190,6 +191,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
 
         controladorPrincipal.mostrarMensaje("Éxito", "¡Publicación creada correctamente!", Alert.AlertType.INFORMATION);
         limpiarFormulario();
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml","Publicaciones", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 

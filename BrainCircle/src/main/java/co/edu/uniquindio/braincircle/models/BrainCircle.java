@@ -56,9 +56,11 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         arbolBinarioContenido.agregarContenido(contenido);
     }
 
-    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
-        return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor);
+
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor, Comparable conte) {
+        return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor, conte);
     }
+
     public boolean eliminarContenidoPorId(Comparable idContenido){
         return arbolBinarioContenido.eliminarContenidoPorId(idContenido);
     }
@@ -67,6 +69,13 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     }
     public Contenido<T> obtenerContenidoPorId(Comparable idContenido) {
         return arbolBinarioContenido.obtenerContenidoPorId(idContenido);
+    }
+    public boolean darLikeAContenido(Comparable idContenido, String idUsuario) {
+        return arbolBinarioContenido.incrementarLikePorId((T) idContenido, idUsuario);
+    }
+
+    public boolean comentarContenido(Comparable idContenido, String comentario) {
+        return arbolBinarioContenido.agregarComentarioPorId(idContenido, comentario);
     }
 
 }

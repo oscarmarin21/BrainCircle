@@ -103,8 +103,8 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
 
 
     @Override
-    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
-        return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor, Comparable conte) {
+        return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor,conte);
     }
 
     @Override
@@ -126,6 +126,13 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     public Usuario ObtenerUserAutenticado(String correo, String clave) {
         return brainCircle.ObtenerUserAutenticado(correo,clave);
     }
-
+    @Override
+    public boolean darLikeAContenido(Comparable idContenido, String idUsuario) {
+        return brainCircle.darLikeAContenido(idContenido,idUsuario);
+    }
+    @Override
+    public boolean comentarContenido(Comparable idContenido, String comentario) {
+        return brainCircle.comentarContenido(idContenido, comentario);
+    }
 
 }

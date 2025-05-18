@@ -12,6 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.GridPane?>
 <AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
@@ -27,7 +28,7 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button layoutX="-1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;" text="Inicio" textFill="#010035">
+        <Button onAction="#volverAlInicio" layoutX="-1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;" text="Inicio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
@@ -40,6 +41,8 @@
         <Line endX="299.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
+        <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" layoutY="67.0" vgap="10.0">
+        </GridPane>
         <Line endX="-83.0" endY="-94.0" layoutX="377.0" layoutY="119.0" startX="-83.0" startY="-119.0">
             <stroke>
                 <LinearGradient endX="1.0" endY="1.0">
@@ -69,6 +72,15 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-
+        <Button layoutX="200.0" layoutY="389.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="Mis publicaciones" textFill="#010035" onAction="#misPublicacon">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
+        <Button visible="false" fx:id="bntVolver" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" onAction="#volver">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

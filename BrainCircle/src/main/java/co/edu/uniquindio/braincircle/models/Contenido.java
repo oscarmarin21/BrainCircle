@@ -1,6 +1,6 @@
 package co.edu.uniquindio.braincircle.models;
 
-import java.util.UUID;
+import java.util.*;
 
 public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<T>> {
     private T idContenido;
@@ -8,13 +8,17 @@ public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<
     private T tema;
     private T tipo;
     private T autor;
-
-    public Contenido(T id, T titulo, T tema, T tipo, T autor) {
+    private T conte;
+    private int likes = 0;
+    private List<String> comentarios = new ArrayList<>();
+    private Set<String> usuariosQueDieronLike = new HashSet<>();
+    public Contenido(T id, T titulo, T tema, T tipo, T autor, T conte) {
         this.idContenido = id;
         this.titulo = titulo;
         this.tema = tema;
         this.tipo = tipo;
         this.autor = autor;
+        this.conte = conte;
     }
     public Contenido(){
     }
@@ -59,6 +63,45 @@ public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<
         this.autor = autor;
     }
 
+    public T getConte() {
+        return conte;
+    }
+
+    public void setConte(T conte) {
+        this.conte = conte;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public boolean registrarLike(String idUsuario) {
+        if (puedeDarLike(idUsuario)) {
+            likes++;
+            usuariosQueDieronLike.add(idUsuario);
+            return true;
+        }
+        return false;
+    }
+    public boolean puedeDarLike(String idUsuario) {
+        return !usuariosQueDieronLike.contains(idUsuario);
+    }
+
+    public List<String> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<String> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public void agregarComentario(String comentario) {
+        this.comentarios.add(comentario);
+    }
     public T generaridUsuario() {
         this.idContenido = (T) UUID.randomUUID();
         return idContenido;
