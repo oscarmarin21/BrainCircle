@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBrainCircle {
     private final BrainCircle brainCircle;
@@ -133,6 +134,26 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     @Override
     public boolean comentarContenido(Comparable idContenido, String comentario) {
         return brainCircle.comentarContenido(idContenido, comentario);
+    }
+
+    @Override
+    public void conectarUsuarios(Usuario u1, Usuario u2) {
+       brainCircle.conectarUsuarios(u1,u2);
+    }
+
+    @Override
+    public Set<Usuario> obtenerConexiones(Usuario u) {
+        return brainCircle.obtenerConexiones(u);
+    }
+
+    @Override
+    public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
+        return brainCircle.sugerenciasDeAmistad(estudiante);
+    }
+
+    @Override
+    public Usuario obtenerUsuarioPorId(String id) {
+        return brainCircle.obtenerUsuarioPorId(id);
     }
 
 }

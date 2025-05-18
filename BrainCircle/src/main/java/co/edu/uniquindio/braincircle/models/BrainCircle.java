@@ -1,21 +1,25 @@
 package co.edu.uniquindio.braincircle.models;
 
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.Grafos.GrafoAfinidadUsuarios;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircle {
     private List<Usuario> usuarios;
     private List<Contenido> contenido;
     private ArbolBinarioContenido arbolBinarioContenido;
+    private GrafoAfinidadUsuarios grafoAfinidadUsuarios;
     // Constructor privado para evitar instanciación externa
     public BrainCircle() {
         this.usuarios = new ArrayList<>();
         this.contenido = new ArrayList<>();
         this.arbolBinarioContenido = new ArbolBinarioContenido();
+        this.grafoAfinidadUsuarios = new GrafoAfinidadUsuarios();
     }
 
     // Método para obtener la instancia única
@@ -51,6 +55,14 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         }
         return null;
     }
+    public Usuario obtenerUsuarioPorId(String id){
+        for (Usuario u : usuarios) {
+            if (u.getId().equals(id)) {
+                return u;
+            }
+        }
+        return null;
+    }
 
     public void agregarContenido(Contenido contenido) {
         arbolBinarioContenido.agregarContenido(contenido);
@@ -78,4 +90,13 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         return arbolBinarioContenido.agregarComentarioPorId(idContenido, comentario);
     }
 
+    public void conectarUsuarios(Usuario u1, Usuario u2) {
+        grafoAfinidadUsuarios.conectarUsuarios(u1, u2);
+    }
+    public Set<Usuario> obtenerConexiones(Usuario u) {
+        return grafoAfinidadUsuarios.obtenerConexiones(u);
+    }
+    public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
+        return grafoAfinidadUsuarios.sugerenciasDeAmistad(estudiante);
+    }
 }

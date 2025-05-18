@@ -3,6 +3,7 @@ package co.edu.uniquindio.braincircle;
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
 import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,25 +15,25 @@ import java.util.List;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        // Obtener el controlador principal
         ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
-        // Registrar usuario
-        String id = "1";
-        String nombre = "Anye";
-        String correo = "1";
-        String telefono = "3210001111";
-        String password = "1";
-        controlador.registrar(id, nombre, correo, telefono, password);
+        controlador.registrar("1", "Anye", "1", "3210001111", "1");
+        controlador.registrar("2", "Luisa", "luisa@uniquindio.edu.co", "3210002222", "1234");
+        controlador.registrar("3", "Carlos", "carlos@uniquindio.edu.co", "3210003333", "1234");
+        controlador.registrar("4", "Mafe", "mafe@uniquindio.edu.co", "3210004444", "1234");
 
-        // Crear contenidos y agregarlos al sistema
-        Contenido<String> c1 = new Contenido<>("1", "Estructuras", "Programación", "PDF", id, "dd");
-        Contenido<String> c2 = new Contenido<>("2", "Álgebra", "Matemáticas", "Video", id, "www");
-        Contenido<String> c3 = new Contenido<>("3", "Sistemas", "Informática", "Archivo", "Luisa", "www");
+        Usuario anye = controlador.ObtenerUserAutenticado("1", "1");
+        Usuario luisa = controlador.ObtenerUserAutenticado("luisa@uniquindio.edu.co", "1234");
+        Usuario carlos = controlador.ObtenerUserAutenticado("carlos@uniquindio.edu.co", "1234");
+        Usuario mafe = controlador.ObtenerUserAutenticado("mafe@uniquindio.edu.co", "1234");
 
-        controlador.agregarContenido(c1);
-        controlador.agregarContenido(c2);
-        controlador.agregarContenido(c3);
+        controlador.conectarUsuarios(anye, luisa);
+        controlador.conectarUsuarios(luisa, carlos);
+        controlador.conectarUsuarios(luisa, mafe);
+
+        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "PDF", anye.getId(), "ruta1.pdf"));
+        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getId(), "video.mp4"));
+        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getId(), "doc.docx"));
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);
@@ -45,3 +46,4 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+
