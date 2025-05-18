@@ -76,12 +76,12 @@
                         <Font name="Candara" size="14.0" />
                     </font>
                 </Button>
-                <HBox spacing="10" alignment="CENTER_LEFT">
+                <HBox fx:id="like" spacing="10" alignment="CENTER_LEFT">
                     <Button fx:id="btnLike" text="❤️ Me gusta" onAction="#darLike" />
                     <Label fx:id="lblLikes" text="0 Likes" />
                 </HBox>
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
+                <HBox fx:id="coment" spacing="10" alignment="CENTER_LEFT">
                     <TextField fx:id="txtComentario" promptText="Escribe un comentario..." />
                     <Button text="Comentar" onAction="#comentar" />
                 </HBox>

@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -40,6 +41,10 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
     @FXML
     public VBox boxComentarios;
     @FXML
+    public HBox like;
+    @FXML
+    public HBox coment;
+    @FXML
     private Label lblAutor;
 
     private ControladorPrincipal controladorPrincipal;
@@ -67,6 +72,9 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
         else if(habil ==2){
             btnEdit.setVisible(true);
             btnDelete.setVisible(false);
+            like.setVisible(false);
+            coment.setVisible(false);
+            boxComentarios.setVisible(false);
         }
         String mostrarContenido = contenido.getTipo().toString();
         if (contenido.getTipo().equals("ENLACE")){
