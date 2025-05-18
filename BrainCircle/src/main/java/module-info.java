@@ -1,7 +1,7 @@
 module co.edu.uniquindio.braincircle {
     requires javafx.controls;
     requires javafx.fxml;
-    requires demo;
+    //requires demo;
     requires java.desktop;
 
 
