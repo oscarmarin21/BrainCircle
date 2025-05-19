@@ -13,86 +13,117 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.EditarPublicacionConrolador">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
-        <ScrollBar layoutX="383.0" layoutY="27.0" orientation="VERTICAL" prefHeight="351.0" prefWidth="17.0" style="-fx-background-color: #ffffff;" />
-        <Button layoutX="134.0" layoutY="334.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0"
+                   stroke="#010035" strokeType="INSIDE" width="400.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0"
+                   stroke="#c1ff72" strokeType="INSIDE" width="400.0"/>
+        <ScrollBar layoutX="383.0" layoutY="27.0" orientation="VERTICAL" prefHeight="351.0"
+                   prefWidth="17.0" style="-fx-background-color: #ffffff;"/>
+        <Button onAction="#actuMiPublicacion" layoutX="134.0" layoutY="334.0" mnemonicParsing="false"
+                prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #c1ff72;" text="Actualizar"
+                textFill="#010035">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </Button>
-        <Label layoutX="124.0" layoutY="37.0" text="Editar Publicación" textFill="#010035">
+        <Label layoutX="123.0" layoutY="38.0" text="Nueva Publicación" textFill="#010035">
             <font>
-                <Font name="Candara" size="20.0" />
+                <Font name="Candara" size="20.0"/>
             </font>
         </Label>
-        <TextField alignment="CENTER" layoutX="97.0" layoutY="91.0" prefHeight="29.0" prefWidth="214.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+        <TextField fx:id="txtNombre" alignment="CENTER" layoutX="97.0" layoutY="91.0" prefHeight="29.0"
+                   prefWidth="214.0" promptText="Nombre"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </TextField>
-        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="50.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="50.0" layoutY="251.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/imagen.png" />
+                <Image url="@img/imagen.png"/>
             </image>
         </ImageView>
-        <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="50.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="50.0" layoutY="289.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/video.png" />
+                <Image url="@img/video.png"/>
             </image>
         </ImageView>
-        <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="52.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="52.0" layoutY="171.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/link.png" />
+                <Image url="@img/link.png"/>
             </image>
         </ImageView>
-        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="52.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="52.0" layoutY="213.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/doc.png" />
+                <Image url="@img/doc.png"/>
             </image>
         </ImageView>
-        <TextField alignment="CENTER" layoutX="97.0" layoutY="131.0" prefHeight="29.0" prefWidth="214.0" promptText="Descripción" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+        <TextField fx:id="txtDescription" alignment="CENTER" layoutX="97.0" layoutY="131.0"
+                   prefHeight="29.0" prefWidth="214.0" promptText="Descripción"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </TextField>
-        <TextField alignment="CENTER" layoutX="96.0" layoutY="170.0" prefHeight="29.0" prefWidth="214.0" promptText="Link" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+        <TextField fx:id="txtLink" disable="true" alignment="CENTER" layoutX="96.0" layoutY="170.0" prefHeight="29.0"
+                   prefWidth="214.0" promptText="Link"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </TextField>
-        <Button layoutX="97.0" layoutY="210.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Archivo" textFill="#898994">
+        <Button onAction="#seleccionarArchivo" disable="true" fx:id="btnArchivo" layoutX="97.0" layoutY="210.0" mnemonicParsing="false"
+                prefHeight="29.0" prefWidth="214.0"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Archivo"
+                textFill="#898994">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </Button>
-        <ImageView fitHeight="22.0" fitWidth="30.0" layoutX="52.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="22.0" fitWidth="30.0" layoutX="52.0" layoutY="135.0"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/info2.png" />
+                <Image url="@img/info2.png"/>
             </image>
         </ImageView>
-        <Button layoutX="96.0" layoutY="249.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Imagen" textFill="#898994">
+        <Button fx:id="btnImagen" disable="true" layoutX="96.0" layoutY="249.0" mnemonicParsing="false"
+                prefHeight="29.0" prefWidth="214.0"  onAction="#seleccionarImagen"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Imagen"
+                textFill="#898994">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </Button>
-        <Button layoutX="96.0" layoutY="289.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Archivo" textFill="#898994">
+        <Button fx:id="btnVideo" layoutX="96.0" layoutY="289.0" mnemonicParsing="false" disable="true"
+                prefHeight="29.0" prefWidth="214.0" onAction="#seleccionarVideo"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar video"
+                textFill="#898994">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="14.0"/>
             </font>
         </Button>
-        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="53.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="53.0" layoutY="93.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@img/user.png" />
+                <Image url="@img/user.png"/>
             </image>
         </ImageView>
-        <CheckBox layoutX="328.0" layoutY="295.0" mnemonicParsing="false" />
-        <CheckBox layoutX="328.0" layoutY="176.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" />
-        <CheckBox layoutX="328.0" layoutY="216.0" mnemonicParsing="false" />
-        <CheckBox layoutX="328.0" layoutY="255.0" mnemonicParsing="false" />
-        <ImageView fitHeight="40.0" fitWidth="90.0" layoutX="10.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+
+        <!-- CheckBoxes -->
+        <CheckBox fx:id="chkVideo" layoutX="328.0" layoutY="295.0" mnemonicParsing="false"/>
+        <CheckBox fx:id="chkLink" layoutX="328.0" layoutY="176.0" mnemonicParsing="false"
+                  style="-fx-background-color: #ffffff;"/>
+        <CheckBox fx:id="chkArchivo" layoutX="328.0" layoutY="216.0" mnemonicParsing="false"/>
+        <CheckBox fx:id="chkImagen" layoutX="328.0" layoutY="255.0" mnemonicParsing="false"/>
+
+        <ImageView fitHeight="40.0" fitWidth="90.0" layoutX="10.0" layoutY="385.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@img/logo6.png" />
+                <Image url="@img/logo6.png"/>
             </image>
         </ImageView>
     </children>

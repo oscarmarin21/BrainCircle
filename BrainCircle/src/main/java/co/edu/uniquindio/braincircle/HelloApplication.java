@@ -1,7 +1,9 @@
 package co.edu.uniquindio.braincircle;
 
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,46 +14,27 @@ import java.util.List;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        ArbolBinarioContenido<String> arbol = new ArbolBinarioContenido<>();
+    public void start(Stage stage) throws Exception {
+        ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
-        Contenido<String> c1 = new Contenido<>("1", "Estructuras", "Programación", "PDF", "Anye");
-        Contenido<String> c2 = new Contenido<>("2", "Álgebra", "Matemáticas", "Video", "Pedro");
-        Contenido<String> c3 = new Contenido<>("3", "Sistemas", "Informática", "Archivo", "Luisa");
+        controlador.registrar("1", "Anye", "1", "3210001111", "1");
+        controlador.registrar("2", "Luisa", "luisa@uniquindio.edu.co", "3210002222", "1234");
+        controlador.registrar("3", "Carlos", "carlos@uniquindio.edu.co", "3210003333", "1234");
+        controlador.registrar("4", "Mafe", "mafe@uniquindio.edu.co", "3210004444", "1234");
 
-        arbol.agregarContenido(c1);
-        arbol.agregarContenido(c2);
-        arbol.agregarContenido(c3);
+        Usuario anye = controlador.ObtenerUserAutenticado("1", "1");
+        Usuario luisa = controlador.ObtenerUserAutenticado("luisa@uniquindio.edu.co", "1234");
+        Usuario carlos = controlador.ObtenerUserAutenticado("carlos@uniquindio.edu.co", "1234");
+        Usuario mafe = controlador.ObtenerUserAutenticado("mafe@uniquindio.edu.co", "1234");
 
-        System.out.println("Contenidos actuales (desde JavaFX):");
-        arbol.cargarContenidos();
-        arbol.actualizarContenido(
-                "2",
-                "Python Pro",
-                "Ciencia de Datos",
-                "Video",
-                "Profesor Anye"
-        );
-        List<Contenido<String>> contenidos = arbol.cargarContenidos();
-        System.out.println("Contenidos actuales (desde JavaFX):");
-        for (Contenido<String> c : contenidos) {
-            System.out.println("Título: " + c.getTitulo());
-            System.out.println("Autor: " + c.getAutor());
-            System.out.println("--------------------");
-        }
+        controlador.conectarUsuarios(anye, luisa);
+        controlador.conectarUsuarios(luisa, carlos);
+        controlador.conectarUsuarios(luisa, mafe);
 
-        boolean fueEliminado = arbol.eliminarContenidoPorId("2");
-        System.out.println(fueEliminado ? "Nodo eliminado" : " Nodo no encontrado");
+        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "PDF", anye.getId(), "ruta1.pdf"));
+        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getId(), "video.mp4"));
+        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getId(), "doc.docx"));
 
-        Contenido<String> contenido = arbol.obtenerContenidoPorId("3");
-
-        if (contenido != null) {
-            System.out.println("Contenido encontrado:");
-            System.out.println("Título: " + contenido.getTitulo());
-            System.out.println("Tema: " + contenido.getTema());
-        } else {
-            System.out.println("Contenido no encontrado.");
-        }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);
         stage.setTitle("Hello!");
@@ -63,3 +46,4 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+

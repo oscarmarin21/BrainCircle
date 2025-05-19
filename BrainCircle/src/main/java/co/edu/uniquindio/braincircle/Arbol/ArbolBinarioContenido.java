@@ -15,18 +15,20 @@ public class ArbolBinarioContenido<T extends Comparable<T>> {
 
     private NodoContenido<T> agregarArbolContenido(NodoContenido<T> nodo, Contenido<T> contenido) {
         if (nodo == null) return new NodoContenido<>(contenido);
-        if (contenido.getTitulo().compareTo(nodo.getDato().getTitulo()) < 0)
+        if (contenido.getId().compareTo(nodo.getDato().getId()) < 0) {
             nodo.setIzquierda(agregarArbolContenido(nodo.getIzquierda(), contenido));
-        else
+        } else {
             nodo.setDerecha(agregarArbolContenido(nodo.getDerecha(), contenido));
+        }
         return nodo;
     }
 
+
     //ACTUALIZAR CONTENIDO
-    public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor) {
-        return actualizarNodoPorIdArbol(raiz, idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+    public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor, T conte) {
+        return actualizarNodoPorIdArbol(raiz, idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor, conte);
     }
-    private boolean actualizarNodoPorIdArbol(NodoContenido<T> nodo, T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor) {
+    private boolean actualizarNodoPorIdArbol(NodoContenido<T> nodo, T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor, T conte) {
         if (nodo == null) return false;
         int comparacion = idContenido.compareTo(nodo.getDato().getId());
 
@@ -35,11 +37,12 @@ public class ArbolBinarioContenido<T extends Comparable<T>> {
             nodo.getDato().setTema(nuevoTema);
             nodo.getDato().setTipo(nuevoTipo);
             nodo.getDato().setAutor(nuevoAutor);
+            nodo.getDato().setConte(conte);
             return true;
         } else if (comparacion < 0) {
-            return actualizarNodoPorIdArbol(nodo.getIzquierda(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+            return actualizarNodoPorIdArbol(nodo.getIzquierda(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor, conte);
         } else {
-            return actualizarNodoPorIdArbol(nodo.getDerecha(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+            return actualizarNodoPorIdArbol(nodo.getDerecha(), idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor,conte);
         }
     }
 
@@ -120,5 +123,25 @@ public class ArbolBinarioContenido<T extends Comparable<T>> {
         } else {
             return buscarContenidoPorIdArbol(nodo.getDerecha(), idContenido);
         }
+    }
+
+    public boolean incrementarLikePorId(T idContenido, String idUsuario) {
+        Contenido<T> contenido = buscarContenidoPorIdArbol(raiz, idContenido);
+        if (contenido != null) {
+            boolean exito = contenido.registrarLike(idUsuario);
+            if (exito) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarComentarioPorId(T idContenido, String comentario) {
+        Contenido<T> contenido = obtenerContenidoPorId(idContenido);
+        if (contenido != null) {
+            contenido.agregarComentario(comentario);
+            return true;
+        }
+        return false;
     }
 }

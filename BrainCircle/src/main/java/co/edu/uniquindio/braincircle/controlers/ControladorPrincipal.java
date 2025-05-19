@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBrainCircle {
     private final BrainCircle brainCircle;
@@ -103,8 +104,8 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
 
 
     @Override
-    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor) {
-        return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor);
+    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor, Comparable conte) {
+        return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor,conte);
     }
 
     @Override
@@ -126,6 +127,33 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     public Usuario ObtenerUserAutenticado(String correo, String clave) {
         return brainCircle.ObtenerUserAutenticado(correo,clave);
     }
+    @Override
+    public boolean darLikeAContenido(Comparable idContenido, String idUsuario) {
+        return brainCircle.darLikeAContenido(idContenido,idUsuario);
+    }
+    @Override
+    public boolean comentarContenido(Comparable idContenido, String comentario) {
+        return brainCircle.comentarContenido(idContenido, comentario);
+    }
 
+    @Override
+    public void conectarUsuarios(Usuario u1, Usuario u2) {
+       brainCircle.conectarUsuarios(u1,u2);
+    }
+
+    @Override
+    public Set<Usuario> obtenerConexiones(Usuario u) {
+        return brainCircle.obtenerConexiones(u);
+    }
+
+    @Override
+    public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
+        return brainCircle.sugerenciasDeAmistad(estudiante);
+    }
+
+    @Override
+    public Usuario obtenerUsuarioPorId(String id) {
+        return brainCircle.obtenerUsuarioPorId(id);
+    }
 
 }
