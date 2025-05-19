@@ -7,11 +7,11 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
+<AnchorPane prefHeight="420.0" prefWidth="401.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
-        <ImageView fitHeight="34.0" fitWidth="46.0" layoutX="14.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="55.0" layoutY="367.0" stroke="#010035" strokeType="INSIDE" width="401.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="8.0" layoutY="413.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
+        <ImageView fitHeight="34.0" fitWidth="46.0" layoutX="12.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/logo7.png" />
             </image>
@@ -32,11 +32,14 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Line endX="299.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
+        <Line endX="299.0" endY="2.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
-        <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" layoutY="67.0" vgap="10.0">
+      <ScrollPane layoutY="27.0" prefHeight="339.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
+         <content>
+              <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" vgap="10.0">
         </GridPane>
+         </content></ScrollPane>
         <Line endX="-83.0" endY="-94.0" layoutX="377.0" layoutY="119.0" startX="-83.0" startY="-119.0">
             <stroke>
                 <LinearGradient endX="1.0" endY="1.0">
@@ -55,22 +58,17 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <ImageView fitHeight="34.0" fitWidth="200.0" layoutX="51.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/logo6.png" />
-            </image>
-        </ImageView>
-        <Button layoutX="335.0" layoutY="389.0" mnemonicParsing="false" onAction="#añadirMiPublicacon" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
+        <Button layoutX="330.0" layoutY="380.0" mnemonicParsing="false" onAction="#añadirMiPublicacon" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="200.0" layoutY="389.0" mnemonicParsing="false" onAction="#misPublicacon" style="-fx-background-color: #c1ff72;" text="Mis publicaciones" textFill="#010035">
+        <Button layoutX="201.0" layoutY="380.0" mnemonicParsing="false" onAction="#misPublicacon" style="-fx-background-color: #c1ff72;" text="Mis publicaciones" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="bntVolver" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" visible="false">
+        <Button fx:id="bntVolver" layoutX="134.0" layoutY="380.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" visible="false">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
