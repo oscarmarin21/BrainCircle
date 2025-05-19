@@ -5,37 +5,47 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="130.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesPagControlador">
-    <VBox alignment="TOP_CENTER" spacing="5" prefWidth="100.0">
-        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+<HBox prefHeight="162.0" prefWidth="306.0" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesPagControlador">
+   <Pane prefHeight="59.0" prefWidth="179.0">
+      <children>
+           <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                   <Image url="@img/user.png" />
+               </image>
+           </ImageView>
+            <TextField fx:id="txtComentario" alignment="CENTER" layoutX="6.0" layoutY="116.0" prefHeight="26.0" prefWidth="135.0" promptText="Escribe un comentario" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+                <font>
+                    <Font name="Candara" size="12.0" />
+                </font>
+         </TextField>
+            <Button layoutX="145.0" layoutY="117.0" onAction="#comentar" prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #c1ff72;" text="⬆">
+                <font>
+                    <Font name="Candara" size="12.0" />
+                </font>
+         </Button>
+         <ImageView fitHeight="30.0" fitWidth="46.0" layoutX="122.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@img/user.png"/>
+               <Image url="@img/info.png" />
             </image>
-        </ImageView>
+         </ImageView>
+      </children>
+   </Pane>
 
-        <HBox spacing="5">
-            <Button fx:id="btnEdit" text="✏" onAction="#editarConte" prefWidth="45" prefHeight="30"
-                    style="-fx-background-color: #c1ff72;" />
-            <Button fx:id="btnDelete" text="🗑" onAction="#Delete" prefWidth="45" prefHeight="30"
-                    style="-fx-background-color: #ff8080; -fx-text-fill: white;" />
-        </HBox>
-    </VBox>
-
-    <VBox alignment="TOP_LEFT" spacing="5" prefWidth="190.0">
-        <Label fx:id="lblTitulo" text="Título" wrapText="true" maxWidth="180">
-            <font><Font name="Candara Bold" size="14.0"/></font>
+    <VBox alignment="CENTER" prefHeight="129.0" prefWidth="120.0" spacing="5">
+        <Label fx:id="lblTitulo" maxWidth="180" text="Título" wrapText="true">
+            <font><Font name="Candara Bold" size="14.0" /></font>
         </Label>
-        <Label fx:id="lblDescrip" text="Tema" wrapText="true" maxWidth="180">
-            <font><Font name="Candara" size="12.0"/></font>
+        <Label fx:id="lblDescrip" maxWidth="180" text="Tema" wrapText="true">
+            <font><Font name="Candara" size="12.0" /></font>
         </Label>
-        <Label fx:id="lblArchivo" text="Archivo:" wrapText="true" maxWidth="180">
-            <font><Font name="Candara" size="12.0"/></font>
+        <Label fx:id="lblArchivo" maxWidth="180" text="Archivo:" wrapText="true">
+            <font><Font name="Candara" size="12.0" /></font>
         </Label>
-        <Label fx:id="lblAutor" text="Autor:" wrapText="true" maxWidth="180">
-            <font><Font name="Candara" size="12.0"/></font>
+        <Label fx:id="lblAutor" maxWidth="180" text="Autor:" wrapText="true">
+            <font><Font name="Candara" size="12.0" /></font>
         </Label>
 
-        <HBox fx:id="like" >
+        <HBox fx:id="like">
             <Button fx:id="btnLike" onAction="#darLike" style="-fx-background-color: #ffffff;" text="❤ Me gusta" textFill="#010035">
                 <font>
                     <Font name="Candara" size="12.0" />
@@ -46,16 +56,11 @@
                 </font></Label>
         </HBox>
 
-        <HBox fx:id="coment" spacing="10">
-            <TextField fx:id="txtComentario" alignment="CENTER" prefHeight="29.0" prefWidth="130.0" promptText="Escribe un comentario" style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
-                <font>
-                    <Font name="Candara" size="12.0" />
-                </font></TextField>
-            <Button onAction="#comentar" prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: #c1ff72;" text="Comentar">
-                <font>
-                    <Font name="Candara" size="12.0" />
-                </font></Button>
-        </HBox>
+        <HBox fx:id="coment" alignment="CENTER" spacing="10">
+         <children>
+               <Button fx:id="btnDelete" contentDisplay="CENTER" onAction="#Delete" prefHeight="30" prefWidth="45" style="-fx-background-color: #ff8080; -fx-text-fill: white;" text="🗑" />
+               <Button fx:id="btnEdit" onAction="#editarConte" prefHeight="30" prefWidth="45" style="-fx-background-color: #c1ff72;" text="✏" />
+         </children></HBox>
 
         <VBox fx:id="boxComentarios" spacing="5" />
     </VBox>
