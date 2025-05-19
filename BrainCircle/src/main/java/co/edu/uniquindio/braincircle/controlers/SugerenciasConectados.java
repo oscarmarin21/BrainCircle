@@ -43,7 +43,7 @@ public class SugerenciasConectados  {
             btnChat.setVisible(false);
         }
 
-        lblAutor.setText("Autor: "+ estudiante.getNombre());
+        lblAutor.setText(estudiante.getNombre());
         idUsuario = idUsuario_act;
         estudianteActual = estudiante;
     }

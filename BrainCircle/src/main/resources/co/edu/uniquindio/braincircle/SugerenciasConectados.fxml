@@ -5,41 +5,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="114.0" prefWidth="276.0" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
-    <children>
-        <Pane prefHeight="195.0" prefWidth="83.0">
-            <children>
-                <ImageView fitHeight="76.0" fitWidth="77.0" layoutX="2.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@img/user.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
-        <VBox alignment="CENTER_LEFT" spacing="5.0">
-            <VBox alignment="CENTER_LEFT" prefHeight="104.0" prefWidth="99.0" spacing="5.0">
+<HBox prefHeight="70.0" prefWidth="90.0"
+      style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;"
+      alignment="CENTER"
+      spacing="5"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
 
-                <Label fx:id="lblAutor" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="229.0" text="Autor:">
+    <VBox alignment="CENTER" spacing="3">
+        <ImageView fitWidth="30.0" fitHeight="30.0" preserveRatio="true">
+            <image>
+                <Image url="@img/user.png" />
+            </image>
+        </ImageView>
+
+        <VBox alignment="CENTER_LEFT" spacing="3">
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label fx:id="lblAutor" text="Nombre" wrapText="true" textAlignment="CENTER" maxWidth="60.0">
                     <font>
-                        <Font size="16.0" />
+                        <Font size="10.0"/>
                     </font>
                 </Label>
-            </VBox>
-        </VBox>
-        <Pane prefHeight="112.0" prefWidth="90.0">
-            <children>
-                    <Button fx:id="btnConect" contentDisplay="CENTER" layoutX="7.0" layoutY="43.0" lineSpacing="2.0" minHeight="26.0" minWidth="78.0" onAction="#Conectar" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #c1ff72;" text="Conectar" textAlignment="CENTER" textFill="#010035">
-                    <font>
-                        <Font name="Candara" size="14.0" />
-                    </font>
-                </Button>
 
-                <Button fx:id="btnChat" layoutX="7.0" layoutY="78.0" minHeight="26.0" minWidth="78.0" onAction="#Chat" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #ff8080;" text="Chat" textFill="WHITE">
-                    <font>
-                        <Font name="Candara" size="14.0" />
-                    </font>
-                </Button>
-            </children>
-        </Pane>
-    </children>
+                <Button fx:id="btnConect" text="+" onAction="#Conectar" prefWidth="20" prefHeight="20"
+                        style="-fx-background-color: #c1ff72; -fx-font-size: 10;" />
+                <Button fx:id="btnChat" text="🗨" onAction="#Chat" prefWidth="25" prefHeight="20"
+                        style="-fx-background-color: #ff8080; -fx-font-size: 10;" />
+            </HBox>
+        </VBox>
+    </VBox>
+
 </HBox>
