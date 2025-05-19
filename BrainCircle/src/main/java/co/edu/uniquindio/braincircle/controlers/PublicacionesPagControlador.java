@@ -71,7 +71,7 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
         }
         else if(habil ==2){
             btnEdit.setVisible(true);
-            btnDelete.setVisible(false);
+            btnDelete.setVisible(true);
             like.setVisible(false);
             coment.setVisible(false);
             boxComentarios.setVisible(false);
