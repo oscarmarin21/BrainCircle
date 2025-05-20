@@ -21,4 +21,6 @@ public interface ServicioBrainCircle<T extends Comparable<T>> {
     public Set<Usuario> obtenerConexiones(Usuario u);
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante);
     public Usuario obtenerUsuarioPorId(String id);
+    public void enviarMensaje(Usuario emisor, Usuario receptor, String contenido);
+    public List<String> obtenerConversacion(Usuario u1, Usuario u2);
 }

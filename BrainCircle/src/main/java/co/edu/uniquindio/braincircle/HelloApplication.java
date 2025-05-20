@@ -18,12 +18,12 @@ public class HelloApplication extends Application {
         ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
         controlador.registrar("1", "Anye", "1", "3210001111", "1");
-        controlador.registrar("2", "Luisa", "luisa@uniquindio.edu.co", "3210002222", "1234");
+        controlador.registrar("2", "Luisa", "2", "3210002222", "2");
         controlador.registrar("3", "Carlos", "carlos@uniquindio.edu.co", "3210003333", "1234");
         controlador.registrar("4", "Mafe", "mafe@uniquindio.edu.co", "3210004444", "1234");
 
         Usuario anye = controlador.ObtenerUserAutenticado("1", "1");
-        Usuario luisa = controlador.ObtenerUserAutenticado("luisa@uniquindio.edu.co", "1234");
+        Usuario luisa = controlador.ObtenerUserAutenticado("2", "2");
         Usuario carlos = controlador.ObtenerUserAutenticado("carlos@uniquindio.edu.co", "1234");
         Usuario mafe = controlador.ObtenerUserAutenticado("mafe@uniquindio.edu.co", "1234");
 

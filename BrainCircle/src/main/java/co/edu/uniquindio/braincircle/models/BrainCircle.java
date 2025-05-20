@@ -26,14 +26,13 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
 
     public boolean autenticar(String correo, String clave) {
         for (Usuario u : usuarios) {
-            if (u.getCorreo().equals(correo) && u.getContraseña().equals(clave)){
-                return true;
-            } else {
-                throw new RuntimeException("Correo o contraseña incorrecta");
+            if (u.getCorreo().equals(correo) && u.getContraseña().equals(clave)) {
+                return true; 
             }
         }
-        return false;
+        throw new RuntimeException("Correo o contraseña incorrecta");
     }
+
 
     public boolean registrar(String id, String nombre, String correo, String telefono, String pass) {
         Estudiante estudiante = new Estudiante.Builder()
@@ -98,5 +97,11 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     }
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
         return grafoAfinidadUsuarios.sugerenciasDeAmistad(estudiante);
+    }
+    public void enviarMensaje(Usuario emisor, Usuario receptor, String contenido){
+        grafoAfinidadUsuarios.enviarMensaje(emisor,receptor,contenido);
+    }
+    public List<String> obtenerConversacion(Usuario u1, Usuario u2){
+        return grafoAfinidadUsuarios.obtenerConversacion(u1,u2);
     }
 }
