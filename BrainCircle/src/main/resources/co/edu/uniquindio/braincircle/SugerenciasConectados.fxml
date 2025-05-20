@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="70.0" prefWidth="90.0"
-      style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;"
-      alignment="CENTER"
-      spacing="5"
-      xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
+<HBox alignment="CENTER" prefHeight="67.0" prefWidth="110.0" spacing="5" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
 
-    <VBox alignment="CENTER" spacing="3">
-        <ImageView fitWidth="30.0" fitHeight="30.0" preserveRatio="true">
-            <image>
-                <Image url="@img/user.png" />
-            </image>
-        </ImageView>
+    <VBox alignment="CENTER" prefHeight="71.0" prefWidth="98.0" spacing="3">
+      <Pane prefHeight="46.0" prefWidth="98.0">
+         <children>
+              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="5.0" preserveRatio="true">
+                  <image>
+                      <Image url="@img/user.png" />
+                  </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+              </ImageView>
+         </children>
+      </Pane>
+         <HBox alignment="CENTER_LEFT" spacing="5">
+             <Label fx:id="lblAutor" maxWidth="60.0" text="Nombre" textAlignment="CENTER" wrapText="true">
+                 <font>
+                     <Font size="10.0" />
+                 </font>
+             </Label>
 
-        <VBox alignment="CENTER_LEFT" spacing="3">
-            <HBox spacing="5" alignment="CENTER_LEFT">
-                <Label fx:id="lblAutor" text="Nombre" wrapText="true" textAlignment="CENTER" maxWidth="60.0">
-                    <font>
-                        <Font size="10.0"/>
-                    </font>
-                </Label>
+             <Button fx:id="btnConect" onAction="#Conectar" prefHeight="21.0" prefWidth="20.0" style="-fx-background-color: #c1ff72; -fx-font-size: 10;" text="+">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font></Button>
+             <Button fx:id="btnChat" onAction="#Chat" prefHeight="21.0" prefWidth="24.0" style="-fx-background-color: #ff8080; -fx-font-size: 10;" text="🗨" />
+         </HBox>
 
-                <Button fx:id="btnConect" text="+" onAction="#Conectar" prefWidth="20" prefHeight="20"
-                        style="-fx-background-color: #c1ff72; -fx-font-size: 10;" />
-                <Button fx:id="btnChat" text="🗨" onAction="#Chat" prefWidth="25" prefHeight="20"
-                        style="-fx-background-color: #ff8080; -fx-font-size: 10;" />
-            </HBox>
-        </VBox>
+        <VBox alignment="CENTER_LEFT" spacing="3" />
     </VBox>
 
 </HBox>

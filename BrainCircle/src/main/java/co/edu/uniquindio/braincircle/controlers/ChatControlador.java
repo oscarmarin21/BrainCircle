@@ -4,7 +4,9 @@ import co.edu.uniquindio.braincircle.Services.ChatListener;
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import java.util.List;
@@ -16,7 +18,7 @@ public class ChatControlador implements Parametrizable,ChatListener {
 
     @FXML
     private TextField campoMensaje;
-
+    private String idUsuario;
     private Usuario usuarioActual;
     private Usuario receptor;
     private ControladorPrincipal controladorPrincipal;
@@ -43,6 +45,10 @@ public class ChatControlador implements Parametrizable,ChatListener {
     private void cargarMensajes() {
         List<String> mensajes = controladorPrincipal.obtenerConversacion(usuarioActual, receptor);
         listaMensajes.getItems().setAll(mensajes);
+    }
+    public void volverAlInicio(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
     @FXML
