@@ -22,7 +22,7 @@
         <ScrollBar layoutX="383.0" layoutY="27.0" orientation="VERTICAL" prefHeight="351.0"
                    prefWidth="17.0" style="-fx-background-color: #ffffff;"/>
         <Button onAction="#crearMiPublicacion" layoutX="134.0" layoutY="334.0" mnemonicParsing="false"
-                prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #c1ff72;" text="Añadir"
+                prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Añadir"
                 textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0"/>
@@ -35,7 +35,7 @@
         </Label>
         <TextField fx:id="txtNombre" alignment="CENTER" layoutX="97.0" layoutY="91.0" prefHeight="29.0"
                    prefWidth="214.0" promptText="Nombre"
-                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara" size="14.0"/>
             </font>
@@ -66,21 +66,21 @@
         </ImageView>
         <TextField fx:id="txtDescription" alignment="CENTER" layoutX="97.0" layoutY="131.0"
                    prefHeight="29.0" prefWidth="214.0" promptText="Descripción"
-                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara" size="14.0"/>
             </font>
         </TextField>
         <TextField fx:id="txtLink" disable="true" alignment="CENTER" layoutX="96.0" layoutY="170.0" prefHeight="29.0"
                    prefWidth="214.0" promptText="Link"
-                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;">
+                   style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara" size="14.0"/>
             </font>
         </TextField>
         <Button onAction="#seleccionarArchivo" disable="true" fx:id="btnArchivo" layoutX="97.0" layoutY="210.0" mnemonicParsing="false"
                 prefHeight="29.0" prefWidth="214.0"
-                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Archivo"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Seleccionar Archivo"
                 textFill="#898994">
             <font>
                 <Font name="Candara" size="14.0"/>
@@ -94,7 +94,7 @@
         </ImageView>
         <Button fx:id="btnImagen" disable="true" layoutX="96.0" layoutY="249.0" mnemonicParsing="false"
                 prefHeight="29.0" prefWidth="214.0"  onAction="#seleccionarImagen"
-                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar Imagen"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Seleccionar Imagen"
                 textFill="#898994">
             <font>
                 <Font name="Candara" size="14.0"/>
@@ -102,7 +102,7 @@
         </Button>
         <Button fx:id="btnVideo" layoutX="96.0" layoutY="289.0" mnemonicParsing="false" disable="true"
                 prefHeight="29.0" prefWidth="214.0" onAction="#seleccionarVideo"
-                style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Seleccionar video"
+                style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Seleccionar video"
                 textFill="#898994">
             <font>
                 <Font name="Candara" size="14.0"/>

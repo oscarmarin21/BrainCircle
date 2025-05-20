@@ -23,22 +23,27 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
+        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnGruposEstudio" layoutX="158.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
+        <Button fx:id="btnGruposEstudio" layoutX="132.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
+      <Button layoutX="269.0" layoutY="-2.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+         <font>
+            <Font name="Candara" size="14.0" />
+         </font>
+      </Button>
         <Line endX="299.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
-        <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
+        <Line endX="-83.0" endY="-94.0" layoutX="213.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" layoutY="67.0" vgap="10.0">
         </GridPane>
-        <Line endX="-83.0" endY="-94.0" layoutX="377.0" layoutY="119.0" startX="-83.0" startY="-119.0">
+        <Line endX="-83.0" endY="-94.0" layoutX="351.0" layoutY="119.0" startX="-83.0" startY="-119.0">
             <stroke>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
@@ -74,8 +79,8 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <ComboBox fx:id="cmbEstadisticas" layoutX="60.0" layoutY="79.0" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" />
-      <Button fx:id="btnBuscarEst" layoutX="282.0" layoutY="79.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #c1ff72;" text="Buscar" textFill="#010035">
+      <ComboBox fx:id="cmbEstadisticas" layoutX="60.0" layoutY="79.0" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Button fx:id="btnBuscarEst" layoutX="282.0" layoutY="79.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Buscar" textFill="#010035">
          <font>
             <Font name="Candara" size="14.0" />
          </font>

@@ -58,14 +58,14 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <Button layoutX="330.0" layoutY="380.0" mnemonicParsing="false" onAction="#añadirMiPublicacon" style="-fx-background-color: #c1ff72;" text="Añadir" textFill="#010035">
+        <Button layoutX="330.0" layoutY="380.0" mnemonicParsing="false" onAction="#añadirMiPublicacon" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Añadir" textFill="#010035">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="12.0" />
             </font>
         </Button>
-        <Button layoutX="201.0" layoutY="380.0" mnemonicParsing="false" onAction="#misPublicacon" style="-fx-background-color: #c1ff72;" text="Mis publicaciones" textFill="#010035">
+        <Button layoutX="201.0" layoutY="380.0" mnemonicParsing="false" onAction="#misPublicacon" prefHeight="17.0" prefWidth="123.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Mis publicaciones" textFill="#010035">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="12.0" />
             </font>
         </Button>
         <Button fx:id="bntVolver" layoutX="134.0" layoutY="380.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" visible="false">
@@ -73,8 +73,8 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-      <ComboBox layoutX="189.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Tipo" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" />
-      <TextField layoutX="14.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" />
-      <Button layoutX="359.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="🔍" />
+      <ComboBox layoutX="189.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Tipo" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <TextField layoutX="14.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Button layoutX="359.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="🔍" />
     </children>
 </AnchorPane>

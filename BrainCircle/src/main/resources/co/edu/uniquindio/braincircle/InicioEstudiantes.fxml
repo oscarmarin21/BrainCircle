@@ -22,12 +22,12 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" onAction="#abrirPublicaciones" prefHeight="7.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+        <Button layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" onAction="#abrirPublicaciones" prefHeight="7.0" prefWidth="100.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Publicaciones" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="158.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
+        <Button layoutX="158.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Grupos de Estudio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
@@ -58,12 +58,12 @@
                 <Image url="@img/user.png" />
             </image>
         </ImageView>
-        <Button layoutX="127.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Editar Perfil" textFill="#010035">
+        <Button layoutX="127.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Perfil" textFill="#010035">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="258.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;" text="Solicitudes" textFill="#010035">
+        <Button layoutX="258.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Solicitudes" textFill="#010035">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
