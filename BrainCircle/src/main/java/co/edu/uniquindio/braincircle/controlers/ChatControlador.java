@@ -47,7 +47,7 @@ public class ChatControlador implements Parametrizable,ChatListener {
         listaMensajes.getItems().setAll(mensajes);
     }
     public void volverAlInicio(ActionEvent actionEvent) {
-        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", idUsuario);
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", usuarioActual.getId());
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 

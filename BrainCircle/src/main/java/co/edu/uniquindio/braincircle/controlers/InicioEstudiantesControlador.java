@@ -23,10 +23,12 @@ public class InicioEstudiantesControlador implements Parametrizable {
     public GridPane gridConexUser;
     private ControladorPrincipal controladorPrincipal;
 
-    public InicioEstudiantesControlador()throws Exception {
+    public InicioEstudiantesControlador() throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
     }
+
     private String idUsuario;
+
     @Override
     public void datosBrainCircle(Object... parametros) {
         if (parametros == null || parametros.length == 0 || parametros[0] == null) {
@@ -42,7 +44,6 @@ public class InicioEstudiantesControlador implements Parametrizable {
         if (usuarioActual instanceof Estudiante estudianteActual) {
             Set<Usuario> conexiones = controladorPrincipal.obtenerConexiones(usuarioActual);
             List<Usuario> sugerencias = controladorPrincipal.sugerenciasDeAmistad(usuarioActual);
-            System.out.println("AQUIIIIIIIIIII" + conexiones);
             List<Estudiante> conexionesEstudiantes = new ArrayList<>();
             for (Usuario u : conexiones) {
                 if (u instanceof Estudiante e) {
@@ -55,15 +56,16 @@ public class InicioEstudiantesControlador implements Parametrizable {
                     sugerenciasEstudiantes.add(e);
                 }
             }
-            cargarConexEnGrid(conexionesEstudiantes, 1,idUsuario);
-            cargarSugeEnGrid(sugerenciasEstudiantes, 2 , idUsuario);
+            cargarConexEnGrid(conexionesEstudiantes, 1, idUsuario);
+            cargarSugeEnGrid(sugerenciasEstudiantes, 2, idUsuario);
         }
     }
 
     public void abrirPublicaciones(ActionEvent actionEvent) {
-        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml","Publicaciones", idUsuario);
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml", "Publicaciones", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
+
     void cargarSugeEnGrid(List<Estudiante> estudiantes, int tipo, String idUsuario_act) {
         gridSugerenciasUser.getChildren().clear();
 
@@ -93,6 +95,7 @@ public class InicioEstudiantesControlador implements Parametrizable {
             }
         }
     }
+
     void cargarConexEnGrid(List<Estudiante> estudiantes, int tipo, String idUsuario_act) {
         gridConexUser.getChildren().clear();
 
@@ -121,5 +124,10 @@ public class InicioEstudiantesControlador implements Parametrizable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void GruposEstudi(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/GruposEstudioEstudiante.fxml", "", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 }
