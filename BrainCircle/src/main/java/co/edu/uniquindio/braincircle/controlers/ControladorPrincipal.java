@@ -97,10 +97,19 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     }
 
     @Override
+    public boolean editarUsuario(String nombre, String correo, String telefono, String pass, Usuario usuarioActual){
+        return brainCircle.editarUsuario(nombre, correo, telefono, pass, usuarioActual);
+    }
+
+    @Override
+    public boolean eliminarUsuario(Usuario usuarioActual){
+        return brainCircle.eliminarUsuario(usuarioActual);
+    }
+
+    @Override
     public void agregarContenido(Contenido<T> contenido) {
         brainCircle.agregarContenido(contenido);
     }
-
 
     @Override
     public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor, T conte) {

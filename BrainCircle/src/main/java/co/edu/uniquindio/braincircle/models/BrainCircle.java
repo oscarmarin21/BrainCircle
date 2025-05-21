@@ -62,7 +62,19 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         }
         return null;
     }
-
+    public boolean editarUsuario(String nombre, String correo, String telefono, String pass, Usuario usuarioActual){
+        usuarioActual.setNombre(nombre);
+        usuarioActual.setCorreo(correo);
+        usuarioActual.setTelefono(telefono);
+        usuarioActual.setContraseña(pass);
+        return true;
+    }
+    public boolean eliminarUsuario(Usuario usuarioActual){
+        List<Usuario> before = usuarios;
+        usuarios.remove(usuarioActual);
+        List<Usuario> after = usuarios;
+        return true;
+    }
     public void agregarContenido(Contenido contenido) {
         arbolBinarioContenido.agregarContenido(contenido);
     }

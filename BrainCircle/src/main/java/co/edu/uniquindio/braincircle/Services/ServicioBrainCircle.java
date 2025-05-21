@@ -9,6 +9,8 @@ import java.util.Set;
 public interface ServicioBrainCircle<T extends Comparable<T>> {
     public boolean autenticar(String correo, String clave);
     public boolean registrar(String id, String nombre, String correo, String telefono, String pass);
+    public boolean editarUsuario(String nombre, String correo, String telefono, String pass, Usuario usuarioActual);
+    public boolean eliminarUsuario(Usuario usuarioActual);
     public void agregarContenido(Contenido<T> contenido);
     public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo,T nuevoAutor,T conte) ;
     public boolean eliminarContenidoPorId(T idContenido);

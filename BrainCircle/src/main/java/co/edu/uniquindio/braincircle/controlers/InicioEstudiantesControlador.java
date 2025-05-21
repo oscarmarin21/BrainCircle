@@ -56,6 +56,7 @@ public class InicioEstudiantesControlador implements Parametrizable {
                     sugerenciasEstudiantes.add(e);
                 }
             }
+            idUsuario = usuarioActual.getId();
             cargarConexEnGrid(conexionesEstudiantes, 1, idUsuario);
             cargarSugeEnGrid(sugerenciasEstudiantes, 2, idUsuario);
         }
@@ -63,6 +64,11 @@ public class InicioEstudiantesControlador implements Parametrizable {
 
     public void abrirPublicaciones(ActionEvent actionEvent) {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml", "Publicaciones", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
+
+    public void abrirEditarPerfil(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/EditarPerfil.fxml", "Editar Perfil", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
