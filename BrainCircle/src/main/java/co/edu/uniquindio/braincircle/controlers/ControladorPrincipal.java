@@ -22,9 +22,11 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     private static final ControladorPrincipal INSTANCIA = new ControladorPrincipal();
     private final BrainCircle<T> brainCircle;
     private final List<ChatListener> chatListeners = new ArrayList<>();
-    private ControladorPrincipal() {
-        brainCircle = new BrainCircle<>();
+    public ControladorPrincipal() {
+        brainCircle = new BrainCircle();
+        brainCircle.cargarContenidos(); // o cargarUsuarios(), etc.
     }
+
 
     public static ControladorPrincipal getInstancia() {
         return INSTANCIA;
@@ -84,6 +86,11 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     public void cerrarVentana(Node node){
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();
+    }
+
+    @Override
+    public BrainCircle getBrainCircle() {
+        return brainCircle.getBrainCircle();
     }
 
     @Override
