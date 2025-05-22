@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="txtDescripcion" prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
+<AnchorPane fx:id="txtDescripcion" prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GruposEstudioAdminControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
@@ -22,17 +22,17 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;" text="Inicio" textFill="#010035">
+        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#btnInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;" text="Inicio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
+        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Usuarios" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnPublicaciones" layoutX="261.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+        <Button fx:id="btnPublicaciones" layoutX="261.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Publicaciones" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
@@ -65,7 +65,7 @@
                 <Image url="@img/logo6.png" />
             </image>
         </ImageView>
-        <Button fx:id="bntVolver" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" visible="false">
+        <Button fx:id="bntVolver" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;" text="Volver" textFill="#010035" visible="false">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
