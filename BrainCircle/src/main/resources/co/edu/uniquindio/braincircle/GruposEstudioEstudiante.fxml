@@ -22,12 +22,12 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button layoutX="-1.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Inicio" textFill="#010035">
+        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Inicio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnPublicacion" layoutX="57.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Publicaciones" textFill="#010035">
+        <Button fx:id="btnPublicacion" layoutX="57.0" layoutY="-1.0" mnemonicParsing="false" onAction="#misPublicaciones" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Publicaciones" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
@@ -58,7 +58,7 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <Button layoutX="201.0" layoutY="380.0" mnemonicParsing="false" onAction="#misPublicacon" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
+        <Button fx:id="btnMisGrupos" layoutX="201.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>

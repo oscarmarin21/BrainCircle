@@ -22,17 +22,17 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button onAction="#InicioAdmin" fx:id="btnInicio" layoutX="5.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="50.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Inicio" textFill="#010035">
+        <Button fx:id="btnInicio" layoutX="5.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnInicio" prefHeight="27.0" prefWidth="50.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Inicio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button onAction="#btnGruposEstudio" fx:id="btnGruposEstudio" layoutX="136.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="128.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Grupos de Estudio" textFill="#010035">
+        <Button fx:id="btnGruposEstudio" layoutX="136.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnGruposEstudios" prefHeight="27.0" prefWidth="128.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Grupos de Estudio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnPublicaciones" layoutX="270.0" layoutY="-1.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+        <Button fx:id="btnPublicaciones" layoutX="270.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Publicaciones" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
