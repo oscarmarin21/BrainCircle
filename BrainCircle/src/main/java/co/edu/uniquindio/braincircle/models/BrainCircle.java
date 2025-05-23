@@ -15,13 +15,14 @@ import java.util.Set;
 import java.util.UUID;
 
 public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircle {
+
     private List<Usuario> usuarios;
     private List<Contenido> contenido;
     private ArbolBinarioContenido arbolBinarioContenido;
     private GrafoAfinidadUsuarios grafoAfinidadUsuarios;
     private Queue<Solicitud> colaSolicitudes;
     private List<Solicitud> solicitudesRespondidas;
-    
+
     // Constructor privado para evitar instanciación externa
     public BrainCircle() {
         this.usuarios = new ArrayList<>();
@@ -40,6 +41,11 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     }
 
     // Método para obtener la instancia única
+
+    @Override
+    public BrainCircle getBrainCircle() {
+        return this;
+    }
 
     public boolean autenticar(String correo, String clave) {
         for (Usuario u : usuarios) {
@@ -95,7 +101,6 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     public void agregarContenido(Contenido contenido) {
         arbolBinarioContenido.agregarContenido(contenido);
     }
-
 
     public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor, Comparable conte) {
         return arbolBinarioContenido.actualizarContenido(idContenido,nuevoTitulo,nuevoTema,nuevoTipo,nuevoAutor, conte);

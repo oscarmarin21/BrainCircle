@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -23,17 +25,17 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button onAction="#Usuarios" fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
+        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Usuarios" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button onAction="#btnGruposEstudios" fx:id="btnGruposEstudio" layoutX="132.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
+        <Button fx:id="btnGruposEstudio" layoutX="132.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnGruposEstudios" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-      <Button onAction="#Publicaciones" layoutX="269.0" layoutY="-2.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+      <Button layoutX="269.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Publicaciones" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
          <font>
             <Font name="Candara" size="14.0" />
          </font>
@@ -71,16 +73,30 @@
             <Font name="Candara" size="16.0" />
          </font>
       </Label>
-      <BarChart layoutX="42.0" layoutY="133.0" prefHeight="218.0" prefWidth="309.0" style="-fx-background-color: #ffffff;">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
-      <ComboBox fx:id="cmbEstadisticas" layoutX="60.0" layoutY="79.0" prefHeight="27.0" prefWidth="216.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Button fx:id="btnBuscarEst" layoutX="282.0" layoutY="79.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Buscar" textFill="#010035">
+      <ScrollPane layoutX="29.0" layoutY="122.0" prefHeight="223.0" prefWidth="343.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <BarChart fx:id="barChart" prefHeight="220.0" prefWidth="340.0" style="-fx-background-color: #ffffff;">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </content>
+      </ScrollPane>
+        <!-- ComboBox para seleccionar estadísticas -->
+        <ComboBox fx:id="cmbEstadisticas" layoutX="44.0" layoutY="79.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Contenidas más valorados" />
+                    <String fx:value="Estudianes con más conexiones" />
+                    <String fx:value="Niveles de paricipación" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <Button fx:id="btnBuscarEst" layoutX="292.0" layoutY="79.0" mnemonicParsing="false" onAction="#buscarAction" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Buscar" textFill="#010035">
          <font>
             <Font name="Candara" size="14.0" />
          </font>
