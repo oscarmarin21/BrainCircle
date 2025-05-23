@@ -75,7 +75,7 @@
       </Label>
       <ScrollPane layoutX="29.0" layoutY="122.0" prefHeight="223.0" prefWidth="343.0" style="-fx-background-color: #ffffff;">
          <content>
-            <BarChart fx:id="barChart" prefHeight="220.0" prefWidth="340.0" style="-fx-background-color: #ffffff;">
+            <BarChart fx:id="barChart" prefHeight="220.0" prefWidth="340.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10;">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

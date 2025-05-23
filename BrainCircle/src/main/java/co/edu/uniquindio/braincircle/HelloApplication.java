@@ -31,9 +31,10 @@ public class HelloApplication extends Application {
         controlador.conectarUsuarios(luisa, carlos);
         controlador.conectarUsuarios(luisa, mafe);
 
-        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "PDF", anye.getId(), "ruta1.pdf"));
-        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getId(), "video.mp4"));
-        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getId(), "doc.docx"));
+        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "PDF", anye.getNombre(), "ruta1.pdf"));
+        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getNombre(), "video.mp4"));
+        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getNombre(), "doc.docx"));
+        controlador.agregarContenido(new Contenido<>("4", "Ecuaciones", "Biologia", "Archivo", mafe.getNombre(), "doc.docx"));
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);

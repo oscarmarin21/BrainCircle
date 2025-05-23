@@ -24,6 +24,9 @@ public class PanelAdminControlador {
     @FXML
     private BarChart<String, Number> barChart;
 
+    /**
+     * Toma el vontenido de la combobox y filtra la gráfica que se quiere mostrar
+     */
 
     @FXML
     public void buscarAction(ActionEvent event) {
@@ -40,6 +43,10 @@ public class PanelAdminControlador {
     }
 
     public void PanelAdminControlador() throws Exception {controladorPrincipal= ControladorPrincipal.getInstancia();}
+
+    /**
+     * Muestra la gráfica de barras de los contenidos más valorados por otros estudiantes
+     */
 
     private void mostrarContenidosMasValorados() {
         barChart.getData().clear();
@@ -62,7 +69,9 @@ public class PanelAdminControlador {
         barChart.getData().add(series);
     }
 
-
+    /**
+     * Muestra la gráfica de barras de los niveles de participación de los estudiantes
+     */
     private void mostrarNivelParticipacion() {
         barChart.getData().clear();
 
@@ -86,6 +95,9 @@ public class PanelAdminControlador {
         barChart.getData().add(series);
     }
 
+    /**
+     * Métodos de redirección del administrador
+     */
 
     public PanelAdminControlador()throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
