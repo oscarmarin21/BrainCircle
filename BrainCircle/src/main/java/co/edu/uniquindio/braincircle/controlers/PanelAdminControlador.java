@@ -1,5 +1,7 @@
 package co.edu.uniquindio.braincircle.controlers;
 
+import co.edu.uniquindio.braincircle.Nodo.Arista;
+import co.edu.uniquindio.braincircle.Nodo.Nodo;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.Contenido;
 import javafx.event.ActionEvent;
@@ -8,10 +10,14 @@ import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PanelAdminControlador {
@@ -19,6 +25,8 @@ public class PanelAdminControlador {
     private ControladorPrincipal controladorPrincipal;
     private Contenido contenido;
 
+    @FXML
+    private Pane pane;
     @FXML
     public ComboBox cmbEstadisticas;
     @FXML
@@ -94,6 +102,8 @@ public class PanelAdminControlador {
 
         barChart.getData().add(series);
     }
+
+
 
     /**
      * Métodos de redirección del administrador

@@ -25,7 +25,6 @@ public interface ServicioBrainCircle<T extends Comparable<T>> {
     public boolean darLikeAContenido(Comparable idContenido, String idUsuario) ;
     public boolean comentarContenido(Comparable idContenido, String comentario);
     public void conectarUsuarios(Usuario u1, Usuario u2);
-    public Set<Usuario> obtenerConexiones(Usuario u);
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante);
     public Usuario obtenerUsuarioPorId(String id);
     public void enviarMensaje(Usuario emisor, Usuario receptor, String contenido);

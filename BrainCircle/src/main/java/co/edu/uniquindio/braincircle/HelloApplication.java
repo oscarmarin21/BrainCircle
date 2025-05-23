@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class HelloApplication extends Application {
@@ -21,11 +22,17 @@ public class HelloApplication extends Application {
         controlador.registrar("2", "Luisa", "2", "3210002222", "2");
         controlador.registrar("3", "Carlos", "carlos@uniquindio.edu.co", "3210003333", "1234");
         controlador.registrar("4", "Mafe", "mafe@uniquindio.edu.co", "3210004444", "1234");
+        controlador.registrar("5", "Santiago", "santiago@uniquindio.edu.co", "3210004444", "1234");
 
         Usuario anye = controlador.ObtenerUserAutenticado("1", "1");
         Usuario luisa = controlador.ObtenerUserAutenticado("2", "2");
         Usuario carlos = controlador.ObtenerUserAutenticado("carlos@uniquindio.edu.co", "1234");
         Usuario mafe = controlador.ObtenerUserAutenticado("mafe@uniquindio.edu.co", "1234");
+        Usuario santiago = controlador.ObtenerUserAutenticado("santiago@uniquindio.edu.co", "1234");
+
+        luisa.setConexiones(Arrays.asList(anye,mafe));
+        carlos.setConexiones(Arrays.asList(anye));
+        santiago.setConexiones(Arrays.asList(carlos));
 
         controlador.conectarUsuarios(anye, luisa);
         controlador.conectarUsuarios(luisa, carlos);

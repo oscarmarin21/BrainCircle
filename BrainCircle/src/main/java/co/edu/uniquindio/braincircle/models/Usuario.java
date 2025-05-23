@@ -2,6 +2,9 @@ package co.edu.uniquindio.braincircle.models;
 
 import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
     // Atributos
     private String id;
@@ -10,6 +13,7 @@ public class Usuario {
     private String telefono;
     private String contraseña;
     private TipoUsuario tipoUsuario;
+    private List<Usuario> conexiones;
 
     // Constructor
     public Usuario(String id, String nombre, String correo, String telefono, String contraseña, TipoUsuario tipoUsuario) {
@@ -19,6 +23,7 @@ public class Usuario {
         this.telefono = telefono;
         this.contraseña = contraseña;
         this.tipoUsuario = tipoUsuario;
+        this.conexiones= new ArrayList<Usuario>();
     }
 
     // Métodos concretos
@@ -64,6 +69,14 @@ public class Usuario {
     }
 
     public String getTelefono() { return telefono; }
+
+    public List<Usuario> getConexiones() {
+        return conexiones;
+    }
+
+    public void setConexiones(List<Usuario> conexiones) {
+        this.conexiones = conexiones;
+    }
 
     public void setTelefono(String telefono) { this.telefono = telefono; }
 

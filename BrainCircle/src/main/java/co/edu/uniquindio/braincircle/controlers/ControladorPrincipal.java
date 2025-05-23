@@ -143,6 +143,10 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     public Usuario ObtenerUserAutenticado(String correo, String clave) {
         return brainCircle.ObtenerUserAutenticado(correo,clave);
     }
+    public List<Usuario> cargarUsuarios(){
+        return brainCircle.cargarUsuarios();
+    }
+
     @Override
     public boolean darLikeAContenido(Comparable idContenido, String idUsuario) {
         return brainCircle.darLikeAContenido(idContenido,idUsuario);
@@ -157,10 +161,7 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
        brainCircle.conectarUsuarios(u1,u2);
     }
 
-    @Override
-    public Set<Usuario> obtenerConexiones(Usuario u) {
-        return brainCircle.obtenerConexiones(u);
-    }
+
 
     @Override
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {

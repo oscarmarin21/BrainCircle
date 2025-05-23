@@ -85,6 +85,10 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         }
         return null;
     }
+
+    public List<Usuario> cargarUsuarios(){
+        return usuarios;
+    }
     public boolean editarUsuario(String nombre, String correo, String telefono, String pass, Usuario usuarioActual){
         usuarioActual.setNombre(nombre);
         usuarioActual.setCorreo(correo);
@@ -126,9 +130,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     public void conectarUsuarios(Usuario u1, Usuario u2) {
         grafoAfinidadUsuarios.conectarUsuarios(u1, u2);
     }
-    public Set<Usuario> obtenerConexiones(Usuario u) {
-        return grafoAfinidadUsuarios.obtenerConexiones(u);
-    }
+
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
         return grafoAfinidadUsuarios.sugerenciasDeAmistad(estudiante);
     }
