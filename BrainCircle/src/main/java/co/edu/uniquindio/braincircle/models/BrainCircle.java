@@ -1,10 +1,12 @@
 package co.edu.uniquindio.braincircle.models;
 
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.Enums.Materia;
+import co.edu.uniquindio.braincircle.Enums.NivelPrioridad;
 import co.edu.uniquindio.braincircle.Grafos.GrafoAfinidadUsuarios;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
-import co.edu.uniquindio.braincircle.models.enums.NivelPrioridad;
+
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -22,6 +24,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     private GrafoAfinidadUsuarios grafoAfinidadUsuarios;
     private Queue<Solicitud> colaSolicitudes;
     private List<Solicitud> solicitudesRespondidas;
+    private List<GrupoEstudio> gruposEstudio ;
 
     // Constructor privado para evitar instanciación externa
     public BrainCircle() {
@@ -29,6 +32,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         this.contenido = new ArrayList<>();
         this.arbolBinarioContenido = new ArbolBinarioContenido();
         this.grafoAfinidadUsuarios = new GrafoAfinidadUsuarios();
+        this.gruposEstudio = new ArrayList<>();
         // Comparador para ordenar solicitudes por prioridad (ALTA primero, luego MEDIA, luego BAJA)
         this.colaSolicitudes = new PriorityQueue<>(Comparator.comparing(Solicitud::getNivelPrioridad, 
             (p1, p2) -> {
@@ -249,4 +253,21 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         
         return solicitudesUsuario;
     }
+
+    //Grupos de estudio
+    public void crearGrupoEstudio(String id,String nombreGrupo, String descripcion, Materia materia) {
+        GrupoEstudio.crearGrupo(id,nombreGrupo, descripcion, materia);
+    }
+    public List<GrupoEstudio> cargarGrupos() {
+        List<GrupoEstudio> listaGrupos = GrupoEstudio.cargarGrupos();
+        return listaGrupos;
+    }
+    public boolean actualizarGrupo(String id, String nuevoNombre, String nuevaDescripcion, Materia nuevaMateria) {
+        boolean actualizar = GrupoEstudio.actualizarGrupo(id,nuevoNombre,nuevaDescripcion,nuevaMateria);
+        return actualizar;
+    }
+    public boolean eliminarGrupo(String idGrupo) {
+        return GrupoEstudio.eliminarGrupo(idGrupo);
+    }
+
 }

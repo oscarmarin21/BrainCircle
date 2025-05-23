@@ -35,7 +35,7 @@ public class HelloApplication extends Application {
         controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getId(), "video.mp4"));
         controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getId(), "doc.docx"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PanelAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);
         stage.setTitle("Hello!");
         stage.setScene(scene);
