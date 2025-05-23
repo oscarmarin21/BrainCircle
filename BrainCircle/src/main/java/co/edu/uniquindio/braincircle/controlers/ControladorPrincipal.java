@@ -1,4 +1,3 @@
-
 package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.Services.ChatListener;
@@ -6,7 +5,9 @@ import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.BrainCircle;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Solicitud;
 import co.edu.uniquindio.braincircle.models.Usuario;
+import co.edu.uniquindio.braincircle.models.enums.NivelPrioridad;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -104,10 +105,19 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     }
 
     @Override
+    public boolean editarUsuario(String nombre, String correo, String telefono, String pass, Usuario usuarioActual){
+        return brainCircle.editarUsuario(nombre, correo, telefono, pass, usuarioActual);
+    }
+
+    @Override
+    public boolean eliminarUsuario(Usuario usuarioActual){
+        return brainCircle.eliminarUsuario(usuarioActual);
+    }
+
+    @Override
     public void agregarContenido(Contenido<T> contenido) {
         brainCircle.agregarContenido(contenido);
     }
-
 
     @Override
     public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor, T conte) {
@@ -185,4 +195,77 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
         }
     }
 
+    // Métodos para gestión de solicitudes
+    
+    /**
+     * Crea una nueva solicitud
+     * @param propietario Usuario que crea la solicitud
+     * @param nivelPrioridad Nivel de prioridad de la solicitud
+     * @param titulo Título de la solicitud
+     * @param mensaje Contenido de la solicitud
+     * @return La solicitud creada
+     */
+    public Solicitud crearSolicitud(Usuario propietario, NivelPrioridad nivelPrioridad, String titulo, String mensaje) {
+        return brainCircle.crearSolicitud(propietario, nivelPrioridad, titulo, mensaje);
+    }
+    
+    /**
+     * Obtiene la próxima solicitud en la cola sin removerla
+     * @return La próxima solicitud o null si no hay solicitudes pendientes
+     */
+    public Solicitud verProximaSolicitud() {
+        return brainCircle.verProximaSolicitud();
+    }
+    
+    /**
+     * Obtiene y remueve la próxima solicitud en la cola
+     * @return La próxima solicitud o null si no hay solicitudes pendientes
+     */
+    public Solicitud obtenerProximaSolicitud() {
+        return brainCircle.obtenerProximaSolicitud();
+    }
+    
+    /**
+     * Responde a una solicitud específica
+     * @param solicitud Solicitud a responder
+     * @param respuesta Respuesta a la solicitud
+     * @return true si la solicitud fue respondida correctamente
+     */
+    public boolean responderSolicitud(Solicitud solicitud, String respuesta) {
+        return brainCircle.responderSolicitud(solicitud, respuesta);
+    }
+    
+    /**
+     * Responde a la próxima solicitud en la cola
+     * @param respuesta Respuesta a la solicitud
+     * @return La solicitud respondida o null si no hay solicitudes
+     */
+    public Solicitud responderProximaSolicitud(String respuesta) {
+        return brainCircle.responderProximaSolicitud(respuesta);
+    }
+    
+    /**
+     * Obtiene todas las solicitudes pendientes
+     * @return Lista de solicitudes pendientes
+     */
+    public List<Solicitud> obtenerSolicitudesPendientes() {
+        return brainCircle.obtenerSolicitudesPendientes();
+    }
+    
+    /**
+     * Obtiene todas las solicitudes que ya han sido respondidas
+     * @return Lista de solicitudes respondidas
+     */
+    public List<Solicitud> obtenerSolicitudesRespondidas() {
+        return brainCircle.obtenerSolicitudesRespondidas();
+    }
+    
+    /**
+     * Obtiene todas las solicitudes de un usuario específico
+     * @param usuario Usuario propietario de las solicitudes
+     * @return Lista de solicitudes del usuario
+     */
+    public List<Solicitud> obtenerSolicitudesPorUsuario(Usuario usuario) {
+        return brainCircle.obtenerSolicitudesPorUsuario(usuario);
+    }
 }

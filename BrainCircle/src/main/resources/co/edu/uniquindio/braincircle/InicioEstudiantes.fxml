@@ -58,7 +58,7 @@
                 <Image url="@img/user.png" />
             </image>
         </ImageView>
-        <Button layoutX="127.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Perfil" textFill="#010035">
+        <Button onAction="#abrirEditarPerfil" layoutX="127.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Perfil" textFill="#010035">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>

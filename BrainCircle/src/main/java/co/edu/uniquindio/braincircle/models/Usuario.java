@@ -51,7 +51,7 @@ public class Usuario {
         return nombre;
     }
 
-    public void setReceive(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -87,10 +87,10 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                "id='" + id + '\'' +
-               ", receive='" + nombre + '\'' +
+               ", nombre='" + nombre + '\'' +
                ", correo='" + correo + '\'' +
-               ", contractile='" + contraseña + '\'' +
-               ", cruingDefaults='" + tipoUsuario + '\'' +
+               ", contraseña='" + contraseña + '\'' +
+               ", tipoUsuario='" + tipoUsuario + '\'' +
                '}';
     }
 }
