@@ -18,6 +18,8 @@ public class PublicacionesControlador implements Parametrizable {
     public GridPane gridPaneContenido;
     @FXML
     public Button bntVolver;
+    @FXML
+    public Button bntGrupo;
     private ControladorPrincipal controladorPrincipal;
 
     public PublicacionesControlador() throws Exception {
@@ -80,7 +82,10 @@ public class PublicacionesControlador implements Parametrizable {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
-
+    public void btnGruposEstudio(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/GruposEstudioEstudiante.fxml","",idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
     public void misPublicacon(ActionEvent actionEvent) {
         List<Contenido> todosLosContenidos = controladorPrincipal.cargarContenidos();
 

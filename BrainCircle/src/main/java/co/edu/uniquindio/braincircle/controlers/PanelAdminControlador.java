@@ -93,7 +93,6 @@ public class PanelAdminControlador {
     public void Publicaciones(ActionEvent actionEvent) {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/PublicacionesAdmin.fxml","Admin Contenido", null);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
-
     }
 
     public void Usuarios(ActionEvent actionEvent) {

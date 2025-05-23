@@ -4,6 +4,7 @@ import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.models.Estudiante;
 import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +33,18 @@ public class GruposEstudioControlador implements Parametrizable {
     }
 
     public void volverAlInicio(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml","Inicio", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
-    public void misPublicacon(ActionEvent actionEvent) {
+    public void misPublicaciones(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/Publicaciones.fxml","Publicaciones", idUsuario );
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
     public void volver(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/GruposEstudioEstudiante.fxml","Admin Contenido", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
+
 }
