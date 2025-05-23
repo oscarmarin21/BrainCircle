@@ -45,6 +45,8 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
     @FXML
     public HBox coment;
     @FXML
+    public Button btnSend;
+    @FXML
     private Label lblAutor;
 
     private ControladorPrincipal controladorPrincipal;
@@ -71,10 +73,12 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
         }
         else if(habil ==2){
             btnEdit.setVisible(true);
-            btnDelete.setVisible(false);
-            like.setVisible(false);
-            coment.setVisible(false);
-            boxComentarios.setVisible(false);
+            btnDelete.setVisible(true);
+            btnLike.setVisible(false);
+            lblLikes.setVisible(false);
+            txtComentario.setVisible(false);
+            btnSend.setVisible(false);
+
         }
         String mostrarContenido = contenido.getTipo().toString();
         if (contenido.getTipo().equals("ENLACE")){

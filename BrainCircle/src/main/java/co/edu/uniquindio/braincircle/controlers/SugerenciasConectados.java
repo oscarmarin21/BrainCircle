@@ -62,5 +62,14 @@ public class SugerenciasConectados  {
     }
 
     public void Chat(ActionEvent actionEvent) {
+        Usuario logueado = controladorPrincipal.obtenerUsuarioPorId(idUsuario);
+
+        controladorPrincipal.navegar(
+                "/co/edu/uniquindio/braincircle/ChatViewsEstudent.xml.fxml",
+                "MENSAJES",
+                logueado,
+                estudianteActual
+        );
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 }

@@ -1,6 +1,7 @@
 
 package co.edu.uniquindio.braincircle.controlers;
 
+import co.edu.uniquindio.braincircle.Services.ChatListener;
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.BrainCircle;
@@ -13,21 +14,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBrainCircle {
-    private final BrainCircle brainCircle;
-    public static ControladorPrincipal INSTANCIA;
-
-    public ControladorPrincipal() throws Exception {
-        brainCircle = new BrainCircle();
-
+public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBrainCircle<T> {
+    private static final ControladorPrincipal INSTANCIA = new ControladorPrincipal();
+    private final BrainCircle<T> brainCircle;
+    private final List<ChatListener> chatListeners = new ArrayList<>();
+    private ControladorPrincipal() {
+        brainCircle = new BrainCircle<>();
     }
-    public static ControladorPrincipal getInstancia()throws Exception{
-        if(INSTANCIA == null){
-            INSTANCIA = new ControladorPrincipal();
-        }
+
+    public static ControladorPrincipal getInstancia() {
         return INSTANCIA;
     }
     public void mostrarMensaje(String titulo, String mensaje, Alert.AlertType tipo){
@@ -98,28 +97,28 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     }
 
     @Override
-    public void agregarContenido(Contenido contenido) {
+    public void agregarContenido(Contenido<T> contenido) {
         brainCircle.agregarContenido(contenido);
     }
 
 
     @Override
-    public boolean actualizarContenido(Comparable idContenido, Comparable nuevoTitulo, Comparable nuevoTema, Comparable nuevoTipo, Comparable nuevoAutor, Comparable conte) {
+    public boolean actualizarContenido(T idContenido, T nuevoTitulo, T nuevoTema, T nuevoTipo, T nuevoAutor, T conte) {
         return brainCircle.actualizarContenido( idContenido, nuevoTitulo, nuevoTema, nuevoTipo, nuevoAutor,conte);
     }
 
     @Override
-    public boolean eliminarContenidoPorId(Comparable idContenido) {
+    public boolean eliminarContenidoPorId(T idContenido) {
         return brainCircle.eliminarContenidoPorId(idContenido);
     }
 
     @Override
-    public List<Contenido> cargarContenidos() {
+    public List<Contenido<T>> cargarContenidos() {
         return brainCircle.cargarContenidos();
     }
 
     @Override
-    public Contenido obtenerContenidoPorId(Comparable idContenido) {
+    public Contenido<T> obtenerContenidoPorId(T idContenido) {
         return brainCircle.obtenerContenidoPorId(idContenido);
     }
 
@@ -154,6 +153,29 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     @Override
     public Usuario obtenerUsuarioPorId(String id) {
         return brainCircle.obtenerUsuarioPorId(id);
+    }
+
+    @Override
+    public void enviarMensaje(Usuario emisor, Usuario receptor, String contenido) {
+        brainCircle.enviarMensaje(emisor,receptor,contenido);
+        notificarMensajeNuevo(emisor.getNombre() + ": " + contenido);
+    }
+
+    @Override
+    public List<String> obtenerConversacion(Usuario u1, Usuario u2) {
+        return brainCircle.obtenerConversacion(u1,u2);
+    }
+
+    public void registrarChatListener(ChatListener listener) {
+        if (!chatListeners.contains(listener)) {
+            chatListeners.add(listener);
+        }
+    }
+
+    public void notificarMensajeNuevo(String mensaje) {
+        for (ChatListener listener : chatListeners) {
+            listener.onMensajeNuevo(mensaje);
+        }
     }
 
 }

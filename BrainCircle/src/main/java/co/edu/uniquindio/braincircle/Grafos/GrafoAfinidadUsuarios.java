@@ -5,9 +5,10 @@ import java.util.*;
 public class GrafoAfinidadUsuarios {
 
     private final Map<Usuario, Set<Usuario>> grafo;
-
+    private final Map<String, List<String>> conversaciones;
     public GrafoAfinidadUsuarios() {
         this.grafo = new HashMap<>();
+        this.conversaciones = new HashMap<>();
     }
 
     public void agregarUsuario(Usuario u) {
@@ -88,5 +89,21 @@ public class GrafoAfinidadUsuarios {
 
     public boolean estanConectados(Usuario u1, Usuario u2) {
         return grafo.containsKey(u1) && grafo.get(u1).contains(u2);
+    }
+    private String getChatKey(String id1, String id2) {
+        return id1.compareTo(id2) < 0 ? id1 + "|" + id2 : id2 + "|" + id1;
+    }
+
+    public void enviarMensaje(Usuario emisor, Usuario receptor, String contenido) {
+        if (!estanConectados(emisor, receptor)) {
+            throw new IllegalArgumentException("Los usuarios no están conectados.");
+        }
+        String clave = getChatKey(emisor.getId(), receptor.getId());
+        conversaciones.putIfAbsent(clave, new ArrayList<>());
+        conversaciones.get(clave).add(emisor.getNombre() + ": " + contenido);
+    }
+
+    public List<String> obtenerConversacion(Usuario u1, Usuario u2) {
+        return conversaciones.getOrDefault(getChatKey(u1.getId(), u2.getId()), new ArrayList<>());
     }
 }
