@@ -115,6 +115,7 @@ public class EditarPerfilControlador implements Parametrizable {
         // Actualizar información del usuario
         if (controladorPrincipal.editarUsuario(txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), txtPassword.getText(), usuarioActual)){
             controladorPrincipal.mostrarMensaje("Éxito", "Información actualizada correctamente", Alert.AlertType.INFORMATION);
+            controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml","Inicio Estudiante",idUsuario);
         } else {
             controladorPrincipal.mostrarMensaje("Error", "No fue posible editar, Intenta nuevamente", Alert.AlertType.INFORMATION);
         }

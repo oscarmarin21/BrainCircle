@@ -1,6 +1,6 @@
 package co.edu.uniquindio.braincircle.models;
 
-import co.edu.uniquindio.braincircle.models.enums.NivelPrioridad;
+import co.edu.uniquindio.braincircle.Enums.NivelPrioridad;
 
 public class Solicitud {
     // Atributos

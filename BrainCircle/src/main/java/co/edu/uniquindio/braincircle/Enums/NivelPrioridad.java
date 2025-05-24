@@ -1,4 +1,4 @@
-package co.edu.uniquindio.braincircle.models.enums;
+package co.edu.uniquindio.braincircle.Enums;
 
 public enum NivelPrioridad {
     BAJA,     // Nivel 1

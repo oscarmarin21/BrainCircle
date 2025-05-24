@@ -1,20 +1,17 @@
 package co.edu.uniquindio.braincircle.models;
 
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.Enums.Materia;
+import co.edu.uniquindio.braincircle.Enums.NivelPrioridad;
 import co.edu.uniquindio.braincircle.Grafos.GrafoAfinidadUsuarios;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.enums.TipoUsuario;
-import co.edu.uniquindio.braincircle.models.enums.NivelPrioridad;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Set;
-import java.util.UUID;
+
+import java.util.*;
 
 public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircle {
+    private final Map<String, String> mapaContenidoGrupo = new HashMap<>();
 
     private List<Usuario> usuarios;
     private List<Contenido> contenido;
@@ -22,6 +19,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
     private GrafoAfinidadUsuarios grafoAfinidadUsuarios;
     private Queue<Solicitud> colaSolicitudes;
     private List<Solicitud> solicitudesRespondidas;
+    private List<GrupoEstudio> gruposEstudio ;
 
     // Constructor privado para evitar instanciación externa
     public BrainCircle() {
@@ -29,6 +27,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         this.contenido = new ArrayList<>();
         this.arbolBinarioContenido = new ArbolBinarioContenido();
         this.grafoAfinidadUsuarios = new GrafoAfinidadUsuarios();
+        this.gruposEstudio = new ArrayList<>();
         // Comparador para ordenar solicitudes por prioridad (ALTA primero, luego MEDIA, luego BAJA)
         this.colaSolicitudes = new PriorityQueue<>(Comparator.comparing(Solicitud::getNivelPrioridad, 
             (p1, p2) -> {
@@ -249,4 +248,78 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         
         return solicitudesUsuario;
     }
+
+    //Grupos de estudio
+    public void crearGrupoEstudio(String id,String nombreGrupo, String descripcion, Materia materia) {
+        GrupoEstudio.crearGrupo(id,nombreGrupo, descripcion, materia);
+    }
+    public List<GrupoEstudio> cargarGrupos() {
+        List<GrupoEstudio> listaGrupos = GrupoEstudio.cargarGrupos();
+        return listaGrupos;
+    }
+    public boolean actualizarGrupo(String id, String nuevoNombre, String nuevaDescripcion, Materia nuevaMateria) {
+        boolean actualizar = GrupoEstudio.actualizarGrupo(id,nuevoNombre,nuevaDescripcion,nuevaMateria);
+        return actualizar;
+    }
+    public boolean eliminarGrupo(String idGrupo) {
+        return GrupoEstudio.eliminarGrupo(idGrupo);
+    }
+    public boolean agregarMiembro(String idGrupo, Estudiante estudiante) {
+        GrupoEstudio grupo = GrupoEstudio.buscarPorId(idGrupo);
+        if (grupo != null) {
+            return grupo.agregarMiembro(estudiante);
+        }
+        return false;
+    }
+    public boolean enviarMensajeAGrupo(String idGrupo, String idEstudiante, String contenido) {
+        GrupoEstudio grupo = GrupoEstudio.buscarPorId(idGrupo);
+        Usuario usuario = obtenerUsuarioPorId(idEstudiante);
+
+        if (grupo != null && usuario instanceof Estudiante estudiante) {
+            String mensajeFormateado = estudiante.getNombre() + ": " + contenido;
+            grupo.enviarMensaje(mensajeFormateado);
+            return true;
+        }
+        return false;
+    }
+    public void crearGruposPorAfinidadEnLikes() {
+        List<Contenido<T>> contenidos = cargarContenidos();
+
+        for (Contenido<T> contenido : contenidos) {
+            Set<String> usuarios = contenido.getUsuariosQueDieronLike();
+
+            if (usuarios.size() >= 2) {
+                String idContenido = contenido.getId().toString();
+
+                String idGrupoExistente = mapaContenidoGrupo.get(idContenido);
+                GrupoEstudio grupo;
+
+                if (idGrupoExistente != null && (grupo = GrupoEstudio.buscarPorId(idGrupoExistente)) != null) {
+                    for (String idUsuario : usuarios) {
+                        Usuario user = obtenerUsuarioPorId(idUsuario);
+                        if (user instanceof Estudiante estudiante) {
+                            grupo.agregarMiembro(estudiante);
+                        }
+                    }
+                } else {
+                    String idGrupoNuevo = UUID.randomUUID().toString().substring(0, 6);
+                    String nombre = "Grupo afinidad: " + contenido.getTitulo();
+                    String descripcion = "Creado por afinidad de likes en el tema: " + contenido.getTema();
+                    Materia materia = Materia.valueOf(contenido.getTema().toString().toUpperCase());
+
+                    GrupoEstudio.crearGrupo(idGrupoNuevo, nombre, descripcion, materia);
+                    GrupoEstudio nuevoGrupo = GrupoEstudio.buscarPorId(idGrupoNuevo);
+
+                    for (String idUsuario : usuarios) {
+                        Usuario user = obtenerUsuarioPorId(idUsuario);
+                        if (user instanceof Estudiante estudiante) {
+                            nuevoGrupo.agregarMiembro(estudiante);
+                        }
+                    }
+                    mapaContenidoGrupo.put(idContenido, idGrupoNuevo);
+                }
+            }
+        }
+    }
 }
+

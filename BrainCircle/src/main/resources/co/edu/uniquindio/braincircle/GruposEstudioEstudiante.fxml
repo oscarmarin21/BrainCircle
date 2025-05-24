@@ -37,7 +37,7 @@
         <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <ScrollPane layoutY="72.0" prefHeight="294.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
             <content>
-                <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" vgap="10.0">
+                <GridPane fx:id="gridPaneGrupos" alignment="CENTER" hgap="10.0" vgap="10.0">
                 </GridPane>
             </content></ScrollPane>
         <Line endX="-83.0" endY="-94.0" layoutX="377.0" layoutY="119.0" startX="-83.0" startY="-119.0">
@@ -58,7 +58,7 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <Button fx:id="btnMisGrupos" layoutX="201.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
+        <Button onAction="#misGrupos" fx:id="btnMisGrupos" layoutX="201.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>

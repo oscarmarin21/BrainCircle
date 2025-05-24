@@ -72,9 +72,9 @@
         </Button>
       <TableView fx:id="tvGruposEstudio" layoutX="19.0" layoutY="227.0" prefHeight="134.0" prefWidth="363.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
         <columns>
-          <TableColumn prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Nombre" />
-          <TableColumn prefWidth="113.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Descripción" />
-            <TableColumn prefWidth="95.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Participantes" />
+          <TableColumn fx:id="tblNombre" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Nombre" />
+          <TableColumn fx:id="tblDescr" prefWidth="113.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Descripción" />
+            <TableColumn fx:id="tblUsers" prefWidth="95.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Participantes" />
             <TableColumn prefWidth="78.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="Archivos" />
         </columns>
       </TableView>
@@ -85,22 +85,22 @@
       </TextField>
       <TextArea fx:id="txtDescripcion1" layoutX="20.0" layoutY="111.0" prefHeight="54.0" prefWidth="363.0" promptText="Descripción..." style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
       <ComboBox fx:id="cmbMateria" layoutX="218.0" layoutY="75.0" prefHeight="27.0" prefWidth="164.0" promptText="Materia" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Button fx:id="btnAgregar" layoutX="21.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Agregar" textFill="#010035">
+      <Button onAction="#cearGrupo" fx:id="btnAgregar" layoutX="21.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Agregar" textFill="#010035">
          <font>
             <Font name="Candara" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnActualizar" layoutX="121.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Actualizar" textFill="#010035">
+      <Button onAction="#ActualizarGrupo" fx:id="btnActualizar" layoutX="121.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Actualizar" textFill="#010035">
          <font>
             <Font name="Candara" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpiar" layoutX="218.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Limpiar" textFill="#010035">
+      <Button onAction="#Limpiar" fx:id="btnLimpiar" layoutX="218.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Limpiar" textFill="#010035">
          <font>
             <Font name="Candara" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnEliminar" layoutX="311.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #ff8080;-fx-background-radius: 10; -fx-border-radius: 10;" text="Eliminar" textFill="WHITE">
+      <Button onAction="#eliminarGrupo" fx:id="btnEliminar" layoutX="311.0" layoutY="184.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #ff8080;-fx-background-radius: 10; -fx-border-radius: 10;" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Candara" size="12.0" />
          </font>
