@@ -28,6 +28,7 @@ public class PublicacionesControlador implements Parametrizable {
 
     private String idUsuario;
 
+
     @Override
     public void datosBrainCircle(Object... parametros) {
         if (parametros == null || parametros.length == 0 || parametros[0] == null) {
@@ -42,6 +43,10 @@ public class PublicacionesControlador implements Parametrizable {
                 .toList();
         cargarContenidoEnGrid(filtrados, 1);
     }
+
+    /**
+     * Método para cargar las publicaciones en el panel del administrador
+     */
 
     void cargarContenidoEnGrid(List<Contenido> contenidos, int tipo) {
         gridPaneContenido.getChildren().clear();
@@ -72,6 +77,10 @@ public class PublicacionesControlador implements Parametrizable {
             }
         }
     }
+
+    /**
+     * Métodos de redirección del administrador
+     */
 
     public void añadirMiPublicacon(ActionEvent actionEvent) {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/AñadirPublicación.fxml", "Mipublicación", idUsuario);

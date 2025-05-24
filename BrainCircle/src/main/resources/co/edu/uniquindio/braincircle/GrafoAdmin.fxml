@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -10,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PanelAdminControlador">
+<AnchorPane prefHeight="432.0" prefWidth="376.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GrafoControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
@@ -25,21 +22,21 @@
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Usuarios" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
+        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnGruposEstudio" layoutX="132.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnGruposEstudios" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
+        <Button fx:id="btnGruposEstudio" layoutX="132.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #ffffff;" text="Grupos de Estudio" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-      <Button layoutX="269.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Publicaciones" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
-         <font>
-            <Font name="Candara" size="14.0" />
-         </font>
-      </Button>
+        <Button layoutX="269.0" layoutY="-2.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+            <font>
+                <Font name="Candara" size="14.0" />
+            </font>
+        </Button>
         <Line endX="299.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="213.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
@@ -68,38 +65,11 @@
                 <Image url="@img/logo6.png" />
             </image>
         </ImageView>
-      <Label layoutX="117.0" layoutY="41.0" text="Reportes y Estadisticas " textFill="#010035">
-         <font>
-            <Font name="Candara" size="16.0" />
-         </font>
-      </Label>
-      <ScrollPane layoutX="29.0" layoutY="122.0" prefHeight="223.0" prefWidth="343.0" style="-fx-background-color: #ffffff;">
-         <content>
-            <BarChart fx:id="barChart" prefHeight="220.0" prefWidth="340.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10;">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
-         </content>
-      </ScrollPane>
-        <!-- ComboBox para seleccionar estadísticas -->
-        <ComboBox fx:id="cmbEstadisticas" layoutX="44.0" layoutY="79.0" prefHeight="27.0" prefWidth="236.0" style="-fx-background-color: white; -fx-border-color: #010035; -fx-background-radius: 10; -fx-border-radius: 10;">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Contenidas más valorados" />
-                    <String fx:value="Estudianes con más conexiones" />
-                    <String fx:value="Niveles de paricipación" />
-                </FXCollections>
-            </items>
-        </ComboBox>
-
-        <Button fx:id="btnBuscarEst" layoutX="292.0" layoutY="79.0" mnemonicParsing="false" onAction="#buscarAction" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="Buscar" textFill="#010035">
-         <font>
-            <Font name="Candara" size="14.0" />
-         </font>
-      </Button>
+        <Label layoutX="117.0" layoutY="41.0" text="Grafo de afinidad" textFill="#010035">
+            <font>
+                <Font name="Candara" size="16.0" />
+            </font>
+        </Label>
+        <ScrollPane layoutX="29.0" layoutY="88.0" prefHeight="257.0" prefWidth="343.0" style="-fx-background-color: #ffffff;" />
     </children>
 </AnchorPane>

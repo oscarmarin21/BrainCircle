@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.EditarPerfilControlador">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.EditarPerfilControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="378.0" stroke="#010035" strokeType="INSIDE" width="400.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="425.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
@@ -24,27 +20,27 @@
                 <Image url="@img/user.png" />
             </image>
         </ImageView>
-        <TextField fx:id="txtIdentificacion" alignment="CENTER" layoutX="80.0" layoutY="144.0" prefHeight="29.0" prefWidth="240.0" promptText="Número de Identificación" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
+        <TextField fx:id="txtIdentificacion" alignment="CENTER" layoutX="152.0" layoutY="144.0" prefHeight="29.0" prefWidth="168.0" promptText="Número de Identificación" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtNombre" alignment="CENTER" layoutX="80.0" layoutY="180.0" prefHeight="29.0" prefWidth="240.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
+        <TextField fx:id="txtNombre" alignment="CENTER" layoutX="152.0" layoutY="180.0" prefHeight="29.0" prefWidth="168.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtCorreo" alignment="CENTER" layoutX="80.0" layoutY="216.0" prefHeight="29.0" prefWidth="240.0" promptText="Correo Electrónico" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
+        <TextField fx:id="txtCorreo" alignment="CENTER" layoutX="152.0" layoutY="216.0" prefHeight="29.0" prefWidth="168.0" promptText="Correo Electrónico" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara Bold" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtTelefono" alignment="CENTER" layoutX="80.0" layoutY="253.0" prefHeight="27.0" prefWidth="240.0" promptText="Teléfono" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
+        <TextField fx:id="txtTelefono" alignment="CENTER" layoutX="152.0" layoutY="253.0" prefHeight="27.0" prefWidth="168.0" promptText="Teléfono" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara Bold" size="12.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="80.0" layoutY="289.0" prefHeight="29.0" prefWidth="240.0" promptText="Contraseña" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
+        <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="152.0" layoutY="289.0" prefHeight="29.0" prefWidth="168.0" promptText="Contraseña" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
@@ -64,11 +60,31 @@
             <Font name="Candara" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnEliminar" onAction="#eliminarCuenta" layoutX="249.0" layoutY="333.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #ff8080;-fx-background-radius: 10; -fx-border-radius: 10;" text="Eliminar" textFill="#010035">
+      <Button fx:id="btnEliminar" layoutX="249.0" layoutY="333.0" mnemonicParsing="false" onAction="#eliminarCuenta" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #ff8080;-fx-background-radius: 10; -fx-border-radius: 10;" text="Eliminar" textFill="#010035">
          <font>
             <Font name="Candara" size="14.0" />
          </font>
       </Button>
+      <Label layoutX="80.0" layoutY="150.0" prefHeight="17.0" prefWidth="71.0" text="Numero ID:" textFill="#010035">
+         <font>
+            <Font name="Candara" size="14.0" />
+         </font></Label>
+      <Label layoutX="80.0" layoutY="186.0" prefHeight="17.0" prefWidth="71.0" text="Nombre:" textFill="#010035">
+         <font>
+            <Font name="Candara" size="14.0" />
+         </font></Label>
+      <Label layoutX="80.0" layoutY="222.0" prefHeight="17.0" prefWidth="71.0" text="Correo:" textFill="#010035">
+          <font>
+              <Font name="Candara" size="14.0" />
+          </font></Label>
+      <Label layoutX="80.0" layoutY="258.0" prefHeight="17.0" prefWidth="71.0" text="Télefono:" textFill="#010035">
+          <font>
+              <Font name="Candara" size="14.0" />
+          </font></Label>
+      <Label layoutX="80.0" layoutY="295.0" prefHeight="17.0" prefWidth="71.0" text="Contraseña:" textFill="#010035">
+          <font>
+              <Font name="Candara" size="14.0" />
+          </font></Label>
 
     </children>
 </AnchorPane>
