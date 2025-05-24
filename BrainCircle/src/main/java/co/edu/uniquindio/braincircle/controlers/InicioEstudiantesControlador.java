@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InicioEstudiantesControlador implements Parametrizable {
     @FXML
@@ -42,7 +43,8 @@ public class InicioEstudiantesControlador implements Parametrizable {
         Usuario usuarioActual = controladorPrincipal.obtenerUsuarioPorId(idUsuario);
 
         if (usuarioActual instanceof Estudiante estudianteActual) {
-            Set<Usuario> conexiones = controladorPrincipal.obtenerConexiones(usuarioActual);
+            List<Usuario> lista = estudianteActual.getConexiones();
+            Set<Usuario> conexiones = lista.stream().collect(Collectors.toSet());
             List<Usuario> sugerencias = controladorPrincipal.sugerenciasDeAmistad(usuarioActual);
             List<Estudiante> conexionesEstudiantes = new ArrayList<>();
             for (Usuario u : conexiones) {

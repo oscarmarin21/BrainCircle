@@ -22,12 +22,12 @@ public class GrafoAfinidadUsuarios {
         grafo.get(u2).add(u1);
     }
 
-    public Set<Usuario> obtenerConexiones(Usuario u) {
-        return grafo.getOrDefault(u, new HashSet<>());
+    public List<Usuario> obtenerConexiones(Usuario u) {
+        return u.getConexiones();
     }
 
     public List<Usuario> sugerenciasDeAmistad(Usuario estudiante) {
-        Set<Usuario> conexionesDirectas = obtenerConexiones(estudiante);
+        List<Usuario> conexionesDirectas = obtenerConexiones(estudiante);
         Set<Usuario> sugerencias = new HashSet<>();
 
         for (Usuario amigo : conexionesDirectas) {

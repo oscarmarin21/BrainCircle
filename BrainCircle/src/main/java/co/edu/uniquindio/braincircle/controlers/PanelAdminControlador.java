@@ -1,5 +1,7 @@
 package co.edu.uniquindio.braincircle.controlers;
 
+import co.edu.uniquindio.braincircle.Nodo.Arista;
+import co.edu.uniquindio.braincircle.Nodo.Nodo;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
 import co.edu.uniquindio.braincircle.models.Contenido;
 import javafx.event.ActionEvent;
@@ -8,10 +10,14 @@ import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PanelAdminControlador {
@@ -20,10 +26,15 @@ public class PanelAdminControlador {
     private Contenido contenido;
 
     @FXML
+    private Pane pane;
+    @FXML
     public ComboBox cmbEstadisticas;
     @FXML
     private BarChart<String, Number> barChart;
 
+    /**
+     * Toma el vontenido de la combobox y filtra la gráfica que se quiere mostrar
+     */
 
     @FXML
     public void buscarAction(ActionEvent event) {
@@ -40,6 +51,10 @@ public class PanelAdminControlador {
     }
 
     public void PanelAdminControlador() throws Exception {controladorPrincipal= ControladorPrincipal.getInstancia();}
+
+    /**
+     * Muestra la gráfica de barras de los contenidos más valorados por otros estudiantes
+     */
 
     private void mostrarContenidosMasValorados() {
         barChart.getData().clear();
@@ -62,7 +77,9 @@ public class PanelAdminControlador {
         barChart.getData().add(series);
     }
 
-
+    /**
+     * Muestra la gráfica de barras de los niveles de participación de los estudiantes
+     */
     private void mostrarNivelParticipacion() {
         barChart.getData().clear();
 
@@ -86,6 +103,11 @@ public class PanelAdminControlador {
         barChart.getData().add(series);
     }
 
+
+
+    /**
+     * Métodos de redirección del administrador
+     */
 
     public PanelAdminControlador()throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
