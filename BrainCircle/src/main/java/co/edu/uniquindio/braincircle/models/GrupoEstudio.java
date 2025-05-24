@@ -2,6 +2,10 @@ package co.edu.uniquindio.braincircle.models;
 
 import co.edu.uniquindio.braincircle.Enums.Materia;
 import co.edu.uniquindio.braincircle.Nodo.NodoGrupo;
+import co.edu.uniquindio.braincircle.Services.ChatListener;
+import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +16,8 @@ public class GrupoEstudio {
     private List<Estudiante> miembros;
     private String descripcion;
     private Materia materia;
-    private List<String> mensajesChat;
+    private final List<ChatListener> listeners = new ArrayList<>();
+    private ObservableList<String> mensajesChat;
     private List<String> contenidos;
     private static NodoGrupo cabeza = null;
 
@@ -22,7 +27,7 @@ public class GrupoEstudio {
         this.descripcion = descripcion;
         this.materia = materia;
         this.miembros = new ArrayList<>();
-        this.mensajesChat = new ArrayList<>();
+        this.mensajesChat = FXCollections.observableArrayList();
         this.contenidos = new ArrayList<>();
     }
 
@@ -92,6 +97,43 @@ public class GrupoEstudio {
         return false;
     }
 
+    public boolean agregarMiembro(Estudiante estudiante) {
+        if (!miembros.contains(estudiante)) {
+            miembros.add(estudiante);
+            estudiante.getGrupos().add(this.idGrupo);
+            for (Estudiante otro : miembros) {
+                if (!otro.equals(estudiante)) {
+                    ControladorPrincipal.getInstancia().conectarUsuarios(estudiante, otro);
+                    System.out.println("Se ha generado la conexión auto");
+                }
+            }
+            notificarCambioMiembros();
+            return true;
+        }
+        return false;
+    }
+    public void enviarMensaje(String mensajeCompleto) {
+        this.mensajesChat.add(mensajeCompleto);
+        notificarOyentes(mensajeCompleto);
+    }
+
+    public void agregarListener(ChatListener listener) {
+        if (!listeners.contains(listener)) {
+            listeners.add(listener);
+        }
+    }
+
+    public void notificarOyentes(String mensaje) {
+        for (ChatListener listener : listeners) {
+            listener.onMensajeNuevo(mensaje);
+        }
+    }
+
+    public void notificarCambioMiembros() {
+        notificarOyentes("__actualizar_usuarios__");
+    }
+
+
     public String getNombre() {
         return nombre;
     }
@@ -145,7 +187,7 @@ public class GrupoEstudio {
     }
 
     public void setMensajesChat(List<String> mensajesChat) {
-        this.mensajesChat = mensajesChat;
+        this.mensajesChat = (ObservableList<String>) mensajesChat;
     }
 
     public void setContenidos(List<String> contenidos) {

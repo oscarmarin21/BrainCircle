@@ -70,4 +70,7 @@ public interface ServicioBrainCircle<T extends Comparable<T>> {
 
     public boolean actualizarGrupo(String id, String nuevoNombre, String nuevaDescripcion, Materia nuevaMateria);
     public boolean eliminarGrupo(String idGrupo);
+    public boolean agregarMiembro(String idGrupo, Estudiante estudiante);
+    public boolean enviarMensajeAGrupo(String idGrupo, String idEstudiante, String contenido);
+    public void crearGruposPorAfinidadEnLikes();
 }

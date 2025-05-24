@@ -24,15 +24,13 @@
     <Label layoutX="20" layoutY="100" text="Chat grupal:" style="-fx-font-weight: bold;"/>
     <TextArea fx:id="chatArea" layoutX="20" layoutY="130" prefWidth="560" prefHeight="150" editable="false" wrapText="true"/>
     <TextField fx:id="messageField" layoutX="20" layoutY="290" prefWidth="450" promptText="Escribe un mensaje..."/>
-    <Button fx:id="sendButton" layoutX="480" layoutY="290" text="Enviar"/>
+    <Button onAction="#Enviar" fx:id="sendButton" layoutX="480" layoutY="290" text="Enviar"/>
 
     <!-- Documentos compartidos -->
     <Label layoutX="20" layoutY="340" text="Documentos compartidos:" style="-fx-font-weight: bold;"/>
-    <FlowPane layoutX="200" layoutY="340" hgap="10" vgap="5">
-        <Button text="PDF Álgebra"/>
-        <Button text="Video Programación"/>
-        <Button text="Link a GitHub"/>
+    <FlowPane fx:id="contenidosPane" layoutX="200" layoutY="340" hgap="10" vgap="5">
+
     </FlowPane>
-    <Button fx:id="uploadButton" layoutX="20" layoutY="390" text="Subir recurso"/>
+    <Button onAction="#subirRecursos" fx:id="uploadButton" layoutX="20" layoutY="390" text="Subir recurso"/>
 
 </AnchorPane>

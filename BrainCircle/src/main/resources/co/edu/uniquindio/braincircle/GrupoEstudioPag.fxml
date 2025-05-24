@@ -5,21 +5,50 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="130.0" prefWidth="240.0" style="-fx-border-color: #c1ff72; -fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GrupoEstudioPagControlador">
-   <children>
-      <ImageView fitHeight="64.0" fitWidth="71.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/materia.png" />
-         </image></ImageView>
-      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="30.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/info.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="162.0" layoutY="90.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff;" text="Ver más">
-         <font>
-            <Font name="Candara" size="14.0" />
-         </font>
-      </Button>
-   </children>
-</AnchorPane>
+<HBox prefHeight="162.0" prefWidth="306.0"
+      style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.braincircle.controlers.GrupoEstudioPagControlador">
+    <Pane prefHeight="59.0" prefWidth="179.0">
+        <children>
+            <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@img/user.png"/>
+                </image>
+            </ImageView>
+
+            <ImageView fitHeight="30.0" fitWidth="46.0" layoutX="122.0" layoutY="71.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@img/info.png"/>
+                </image>
+            </ImageView>
+        </children>
+    </Pane>
+
+    <VBox alignment="CENTER" prefHeight="129.0" prefWidth="120.0" spacing="5">
+        <Label fx:id="lblTitulo" maxWidth="180" text="Título" wrapText="true">
+            <font>
+                <Font name="Candara Bold" size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblDescrip" maxWidth="180" text="Tema" wrapText="true">
+            <font>
+                <Font name="Candara" size="12.0"/>
+            </font>
+        </Label>
+        <HBox>
+            <children>
+                <Button onAction="#Conectar" fx:id="btnConect" contentDisplay="CENTER" prefHeight="16.0" prefWidth="45"
+                        style="-fx-background-color: #ff8080; -fx-text-fill: white;-fx-background-radius: 10; -fx-border-radius: 10;"
+                        text="Conectar"/>
+                <Button fx:id="btnChat" contentDisplay="CENTER" onAction="#Chat" prefHeight="16.0" prefWidth="45" style="-fx-background-color: #ff8080; -fx-text-fill: white;-fx-background-radius: 10; -fx-border-radius: 10;" text="Chat" />
+
+            </children>
+        </HBox>
+
+
+    </VBox>
+</HBox>
+

@@ -287,4 +287,18 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
         return brainCircle.eliminarGrupo(idGrupo);
     }
 
+    @Override
+    public boolean agregarMiembro(String idGrupo, Estudiante estudiante){
+        return brainCircle.agregarMiembro(idGrupo,estudiante);
+    }
+    @Override
+    public boolean enviarMensajeAGrupo(String idGrupo, String idEstudiante, String contenido) {
+        return brainCircle.enviarMensajeAGrupo(idGrupo, idEstudiante, contenido);
+    }
+
+    @Override
+    public void crearGruposPorAfinidadEnLikes() {
+        brainCircle.crearGruposPorAfinidadEnLikes();
+    }
+
 }

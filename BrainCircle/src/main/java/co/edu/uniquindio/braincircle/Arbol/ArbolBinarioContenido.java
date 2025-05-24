@@ -1,5 +1,6 @@
 package co.edu.uniquindio.braincircle.Arbol;
 import co.edu.uniquindio.braincircle.Nodo.NodoContenido;
+import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
 import co.edu.uniquindio.braincircle.models.Contenido;
 
 import java.util.ArrayList;
@@ -128,7 +129,7 @@ public class ArbolBinarioContenido<T extends Comparable<T>> {
     public boolean incrementarLikePorId(T idContenido, String idUsuario) {
         Contenido<T> contenido = buscarContenidoPorIdArbol(raiz, idContenido);
         if (contenido != null) {
-            boolean exito = contenido.registrarLike(idUsuario);
+            boolean exito = contenido.registrarLike(idUsuario, ControladorPrincipal.getInstancia());
             if (exito) {
                 return true;
             }
