@@ -124,7 +124,7 @@ public class UsuariosAdminControlador {
 
         // Dibujar nodos
         for (Nodo nodo : nodosMap.values()) {
-            Circle circle = new Circle(nodo.x, nodo.y, 20, Color.LIGHTBLUE);
+            Circle circle = new Circle(nodo.x, nodo.y, 20, Color.LIGHTGREEN);
             circle.setStroke(Color.BLACK);
             Text label = new Text(nodo.x - 10, nodo.y + 5, nodo.id);
             pane.getChildren().addAll(circle, label);
