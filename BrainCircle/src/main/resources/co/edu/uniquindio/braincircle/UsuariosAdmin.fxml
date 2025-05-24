@@ -75,6 +75,7 @@
                 <Image url="@img/logo6.png" />
             </image>
         </ImageView>
+
       <TableView fx:id="tvUsuarios" layoutX="345.0" layoutY="180.0" prefHeight="152.0" prefWidth="347.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;">
         <columns>
           <TableColumn fx:id="tcId" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="ID" />
