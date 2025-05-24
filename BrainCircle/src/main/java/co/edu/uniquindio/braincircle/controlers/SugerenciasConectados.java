@@ -42,7 +42,10 @@ public class SugerenciasConectados  {
             btnConect.setVisible(true);
             btnChat.setVisible(false);
         }
-
+        else if(habil ==3){
+            btnConect.setVisible(false);
+            btnChat.setVisible(false);
+        }
         lblAutor.setText(estudiante.getNombre());
         idUsuario = idUsuario_act;
         estudianteActual = estudiante;

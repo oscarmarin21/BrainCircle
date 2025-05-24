@@ -61,8 +61,9 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
     public void datosBrainCircle(Object[] parametros) {
 
     }
-    public void setData(Contenido contenido, Integer habil) {
-        
+    public void setData(Contenido contenido, Integer habil,String id) {
+        idUsuario=id;
+
         if (contenido == null) {
             System.out.println("El contenido es null");
             return;
@@ -101,7 +102,7 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
         lblLikes.setText(String.valueOf(contenido.getLikes()));
         lblAutor.setText("Autor: "+contenido.getAutor().toString());
         boxComentarios.getChildren().clear();
-        List<String> comentariosGuardados = contenido.getComentarios(); // Suponiendo que tienes este método en tu clase Contenido
+        List<String> comentariosGuardados = contenido.getComentarios();
         if (comentariosGuardados != null && !comentariosGuardados.isEmpty()) {
             for (String comentario : comentariosGuardados) {
                 Label lblComentario = new Label("💬 " + comentario);
@@ -197,8 +198,12 @@ public class PublicacionesPagControlador<T extends Comparable<T>> implements Par
                 btnLike.setDisable(true);
             } else {
                 controladorPrincipal.mostrarMensaje("Aviso", "Ya diste like o no se pudo dar like", Alert.AlertType.ERROR);
-                btnLike.setDisable(true);
+
             }
+            if (contenidoActual.getUsuariosQueDieronLike().size() > 1) {
+                controladorPrincipal.crearGruposPorAfinidadEnLikes();
+            }
+
         }
     }
 

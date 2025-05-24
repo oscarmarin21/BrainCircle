@@ -60,7 +60,7 @@ public class PublicacionesControlador implements Parametrizable {
                 if (fxmlLoader != null) {
                     HBox pagContenido = fxmlLoader.getRoot();
                     PublicacionesPagControlador pagConteControlador = fxmlLoader.getController();
-                    pagConteControlador.setData(contenido, tipo);
+                    pagConteControlador.setData(contenido, tipo, idUsuario);
 
                     if (column == 3) {
                         column = 0;

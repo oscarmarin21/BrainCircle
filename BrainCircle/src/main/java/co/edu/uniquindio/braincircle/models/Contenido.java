@@ -1,5 +1,7 @@
 package co.edu.uniquindio.braincircle.models;
 
+import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
+
 import java.util.*;
 
 public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<T>> {
@@ -12,6 +14,7 @@ public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<
     private int likes = 0;
     private List<String> comentarios = new ArrayList<>();
     private Set<String> usuariosQueDieronLike = new HashSet<>();
+
     public Contenido(T id, T titulo, T tema, T tipo, T autor, T conte) {
         this.idContenido = id;
         this.titulo = titulo;
@@ -79,8 +82,16 @@ public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<
         this.likes = likes;
     }
 
-    public boolean registrarLike(String idUsuario) {
+    public boolean registrarLike(String idUsuario, ControladorPrincipal controladorPrincipal) {
+        System.out.println("Verificando si puede dar like el usuario: 111111111111sdfaser " + idUsuario);
+
         if (puedeDarLike(idUsuario)) {
+            for (String otroUsuario : usuariosQueDieronLike) {
+                controladorPrincipal.conectarUsuarios(
+                        controladorPrincipal.obtenerUsuarioPorId(idUsuario),
+                        controladorPrincipal.obtenerUsuarioPorId(otroUsuario)
+                );
+            }
             likes++;
             usuariosQueDieronLike.add(idUsuario);
             return true;
@@ -88,7 +99,12 @@ public class Contenido<T extends Comparable<T>> implements Comparable<Contenido<
         return false;
     }
     public boolean puedeDarLike(String idUsuario) {
+        System.out.println("Verificando si puede dar like el usuario: " + idUsuario);
+        System.out.println("Usuarios que ya dieron like: " + usuariosQueDieronLike);
         return !usuariosQueDieronLike.contains(idUsuario);
+    }
+    public Set<String> getUsuariosQueDieronLike() {
+        return usuariosQueDieronLike;
     }
 
     public List<String> getComentarios() {

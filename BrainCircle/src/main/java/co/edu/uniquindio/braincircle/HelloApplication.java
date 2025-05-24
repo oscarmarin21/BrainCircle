@@ -1,6 +1,7 @@
 package co.edu.uniquindio.braincircle;
 
 import co.edu.uniquindio.braincircle.Arbol.ArbolBinarioContenido;
+import co.edu.uniquindio.braincircle.Enums.Materia;
 import co.edu.uniquindio.braincircle.controlers.ControladorPrincipal;
 import co.edu.uniquindio.braincircle.models.Contenido;
 import co.edu.uniquindio.braincircle.models.Usuario;
@@ -38,10 +39,12 @@ public class HelloApplication extends Application {
         controlador.conectarUsuarios(luisa, carlos);
         controlador.conectarUsuarios(luisa, mafe);
 
-        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "PDF", anye.getNombre(), "ruta1.pdf"));
-        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "Video", anye.getNombre(), "video.mp4"));
-        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "Informática", "Archivo", luisa.getNombre(), "doc.docx"));
-        controlador.agregarContenido(new Contenido<>("4", "Ecuaciones", "Biologia", "Archivo", mafe.getNombre(), "doc.docx"));
+        controlador.crearGrupoEstudio("g1", "Ingles I", "Grupo de estudio de estructuras básicas de ingles", Materia.INGLES);
+        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "ARCHIVO", anye.getId(), "/C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
+        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "VIDEO", anye.getId(), "video.mp4"));
+        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "BIOLOGIA", "ARCHIVO", luisa.getId(), "C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
+        controlador.agregarContenido(new Contenido<>("4", "Ecuaciones", "Biologia", "ARCHIVO", mafe.getNombre(), "doc.docx"));
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 315);

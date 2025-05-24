@@ -1,13 +1,11 @@
 package co.edu.uniquindio.braincircle.controlers;
 
+import co.edu.uniquindio.braincircle.Enums.Materia;
 import co.edu.uniquindio.braincircle.Services.ChatListener;
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.Services.ServicioBrainCircle;
-import co.edu.uniquindio.braincircle.models.BrainCircle;
-import co.edu.uniquindio.braincircle.models.Contenido;
-import co.edu.uniquindio.braincircle.models.Solicitud;
-import co.edu.uniquindio.braincircle.models.Usuario;
-import co.edu.uniquindio.braincircle.models.enums.NivelPrioridad;
+import co.edu.uniquindio.braincircle.models.*;
+import co.edu.uniquindio.braincircle.Enums.NivelPrioridad;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -24,7 +22,7 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     private final BrainCircle<T> brainCircle;
     private final List<ChatListener> chatListeners = new ArrayList<>();
     public ControladorPrincipal() {
-        brainCircle = new BrainCircle();
+        brainCircle = new BrainCircle<>();
         brainCircle.cargarContenidos(); // o cargarUsuarios(), etc.
     }
 
@@ -161,6 +159,10 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
        brainCircle.conectarUsuarios(u1,u2);
     }
 
+    @Override
+    public Set<Usuario> obtenerConexiones(Usuario u) {
+        return null;
+    }
 
 
     @Override
@@ -269,4 +271,39 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
     public List<Solicitud> obtenerSolicitudesPorUsuario(Usuario usuario) {
         return brainCircle.obtenerSolicitudesPorUsuario(usuario);
     }
+
+    @Override
+    public void crearGrupoEstudio(String id,String nombreGrupo, String descripcion, Materia materia)  {
+        brainCircle.crearGrupoEstudio(id,nombreGrupo,descripcion,materia);
+    }
+
+    @Override
+    public List<GrupoEstudio> cargarGrupos() {
+        return brainCircle.cargarGrupos();
+    }
+
+    @Override
+    public boolean actualizarGrupo(String id, String nuevoNombre, String nuevaDescripcion, Materia nuevaMateria) {
+        return brainCircle.actualizarGrupo(id,nuevoNombre,nuevaDescripcion,nuevaMateria);
+    }
+
+    @Override
+    public boolean eliminarGrupo(String idGrupo) {
+        return brainCircle.eliminarGrupo(idGrupo);
+    }
+
+    @Override
+    public boolean agregarMiembro(String idGrupo, Estudiante estudiante){
+        return brainCircle.agregarMiembro(idGrupo,estudiante);
+    }
+    @Override
+    public boolean enviarMensajeAGrupo(String idGrupo, String idEstudiante, String contenido) {
+        return brainCircle.enviarMensajeAGrupo(idGrupo, idEstudiante, contenido);
+    }
+
+    @Override
+    public void crearGruposPorAfinidadEnLikes() {
+        brainCircle.crearGruposPorAfinidadEnLikes();
+    }
+
 }
