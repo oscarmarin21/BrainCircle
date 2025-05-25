@@ -3,23 +3,26 @@ package co.edu.uniquindio.braincircle.controlers;
 import co.edu.uniquindio.braincircle.Enums.Tipo;
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.Enums.Tipo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Insets;
-
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class PublicacionesControlador implements Parametrizable {
+public class PublicacionesControlador implements Parametrizable, Initializable {
     @FXML
     public ComboBox<Tipo> cmbTipo;
     @FXML
@@ -36,11 +39,55 @@ public class PublicacionesControlador implements Parametrizable {
     private Tipo tipoSeleccionado;
     private List<Contenido> contenidos;
 
+    @FXML
+    public ComboBox<Tipo> comboBoxTipo;
+    @FXML
+    public TextField textFieldFiltro;
+    
+
+    private List<Contenido> contenidosOriginales;
+    private int tipoVista = 1; // 1 = todas las publicaciones, 2 = mis publicaciones
+
     public PublicacionesControlador() throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Cargar las opciones del enum Tipo en el ComboBox
+        comboBoxTipo.getItems().add(null); // Opción para "TODOS"
+        comboBoxTipo.getItems().addAll(Tipo.values());
+        
+        // Configurar el texto mostrado para la opción null
+        comboBoxTipo.setButtonCell(new ListCell<Tipo>() {
+            @Override
+            protected void updateItem(Tipo item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText("TODOS");
+                } else {
+                    setText(item.toString());
+                }
+            }
+        });
+        
+        comboBoxTipo.setCellFactory(listView -> new ListCell<Tipo>() {
+            @Override
+            protected void updateItem(Tipo item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText("TODOS");
+                } else {
+                    setText(item.toString());
+                }
+            }
+        });
+        
+        // Agregar listeners para filtrado en tiempo real
+        comboBoxTipo.setOnAction(e -> aplicarFiltros());
+        textFieldFiltro.textProperty().addListener((observable, oldValue, newValue) -> aplicarFiltros());
+    }
 
     @Override
     public void datosBrainCircle(Object... parametros) {
@@ -51,6 +98,7 @@ public class PublicacionesControlador implements Parametrizable {
 
         idUsuario = parametros[0].toString();
         System.out.println("✅ Usuario autenticado con ID: " + idUsuario);
+
 
         // Obtener el tipo seleccionado desde el ComboBox
         Object tipoSeleccionado = cmbTipo.getSelectionModel().getSelectedItem();
@@ -77,6 +125,18 @@ public class PublicacionesControlador implements Parametrizable {
         // 4. Cargar el contenido filtrado y buscado
         cargarContenidoEnGrid(filtradosBusqueda, 1);
         inicializarTipo();
+        
+        // Cargar todas las publicaciones excepto las del usuario actual
+        List<Contenido> todos1 = controladorPrincipal.cargarContenidos();
+        contenidosOriginales = todos1.stream()
+                .filter(c -> !c.getAutor().equals(idUsuario))
+                .collect(Collectors.toList());
+        tipoVista = 1;
+        
+        // Establecer "TODOS" como valor inicial
+        comboBoxTipo.setValue(null);
+        
+        cargarContenidoEnGrid(contenidosOriginales, tipoVista);
     }
 
     /**
@@ -167,19 +227,59 @@ public class PublicacionesControlador implements Parametrizable {
     public void misPublicacon(ActionEvent actionEvent) {
         List<Contenido> todosLosContenidos = controladorPrincipal.cargarContenidos();
 
-        List<Contenido> misContenidos = todosLosContenidos.stream()
+        contenidosOriginales = todosLosContenidos.stream()
                 .filter(contenido -> contenido.getAutor().equals(idUsuario))
-                .toList();
-        cargarContenidoEnGrid(misContenidos, 2);
+                .collect(Collectors.toList());
+        tipoVista = 2;
+        
+        // Limpiar filtros al cambiar a mis publicaciones
+        comboBoxTipo.setValue(null); // Esto mostrará "TODOS"
+        textFieldFiltro.clear();
+        
+        cargarContenidoEnGrid(contenidosOriginales, tipoVista);
         bntVolver.setVisible(true);
     }
 
     public void volver(ActionEvent actionEvent) {
         List<Contenido> contenidos = controladorPrincipal.cargarContenidos();
-        List<Contenido> filtrados = contenidos.stream()
+        contenidosOriginales = contenidos.stream()
                 .filter(c -> !c.getAutor().equals(idUsuario))
-                .toList();
-        cargarContenidoEnGrid(filtrados, 1);
+                .collect(Collectors.toList());
+        tipoVista = 1;
+        
+        // Limpiar filtros al volver
+        comboBoxTipo.setValue(null); // Esto mostrará "TODOS"
+        textFieldFiltro.clear();
+        
+        cargarContenidoEnGrid(contenidosOriginales, tipoVista);
         bntVolver.setVisible(false);
+    }
+
+    public void buscarPublicaciones(ActionEvent actionEvent) {
+        // El filtrado se aplica automáticamente por los listeners, 
+        // pero este método puede usarse para acciones adicionales si es necesario
+        aplicarFiltros();
+    }
+
+    private void aplicarFiltros() {
+        if (contenidosOriginales == null) return;
+        
+        List<Contenido> filtrados = contenidosOriginales.stream()
+                .filter(c -> {
+                    // Filtro por tipo
+                    boolean matchesTipo = comboBoxTipo.getValue() == null || 
+                                        c.getTipo().toString().equals(comboBoxTipo.getValue().toString());
+                    
+                    // Filtro por título o tema
+                    String textoBusqueda = textFieldFiltro.getText().toLowerCase().trim();
+                    boolean matchesTexto = textoBusqueda.isEmpty() || 
+                                         c.getTitulo().toString().toLowerCase().contains(textoBusqueda) ||
+                                         c.getTema().toString().toLowerCase().contains(textoBusqueda);
+                    
+                    return matchesTipo && matchesTexto;
+                })
+                .collect(Collectors.toList());
+        
+        cargarContenidoEnGrid(filtrados, tipoVista);
     }
 }

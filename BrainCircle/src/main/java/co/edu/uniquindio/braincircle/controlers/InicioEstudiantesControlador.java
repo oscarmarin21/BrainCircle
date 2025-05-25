@@ -74,6 +74,11 @@ public class InicioEstudiantesControlador implements Parametrizable {
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
+    public void abrirSolicitudes(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/SolicitudesEstudiante.fxml", "Mis Solicitudes", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
+
     void cargarSugeEnGrid(List<Estudiante> estudiantes, int tipo, String idUsuario_act) {
         gridSugerenciasUser.getChildren().clear();
 
