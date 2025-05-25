@@ -68,6 +68,7 @@ public class BrainCircle<T extends Comparable<T>>  implements ServicioBrainCircl
         usuarios.add(estudiante);
         return true;
     }
+
     public Usuario ObtenerUserAutenticado(String correo, String clave) {
         for (Usuario u : usuarios) {
             if (u.getCorreo().equals(correo) && u.getContraseña().equals(clave)) {

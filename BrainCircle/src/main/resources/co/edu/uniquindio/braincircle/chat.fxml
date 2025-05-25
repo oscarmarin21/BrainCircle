@@ -52,5 +52,6 @@
         </image>
     </ImageView>
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="4.0" layoutY="419.0" stroke="#c1ff72" strokeType="INSIDE" width="412.0" />
+   <Button layoutX="289.0" layoutY="380.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="⬅" />
 
 </AnchorPane>

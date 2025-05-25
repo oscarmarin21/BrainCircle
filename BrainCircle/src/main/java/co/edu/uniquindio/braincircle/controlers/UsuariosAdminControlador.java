@@ -2,26 +2,36 @@ package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.Nodo.Arista;
 import co.edu.uniquindio.braincircle.Nodo.Nodo;
+import co.edu.uniquindio.braincircle.models.GrupoEstudio;
 import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UsuariosAdminControlador {
+
+    @FXML
+    public TextField txtId;
+    @FXML
+    public TextField txtCorreo;
+    @FXML
+    public TextField txtTelefono;
+    @FXML
+    public TextField txtNombre;
+    @FXML
+    public TextField txtPass;
     @FXML
     public TableView<Usuario> tvUsuarios;
     @FXML
@@ -37,7 +47,8 @@ public class UsuariosAdminControlador {
     private Pane pane;
 
     private ControladorPrincipal controladorPrincipal;
-    private PanelAdminControlador panelAdminControlador;
+    private Usuario usuarioSeleccionado;
+
 
 
 
@@ -52,11 +63,99 @@ public class UsuariosAdminControlador {
         tcCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo().toString()));
         tcTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono().toString()));
         inicializarTabla();
+        dobleClick();
     }
 
     public void inicializarTabla() {
         tvUsuarios.setItems(FXCollections.observableArrayList(controladorPrincipal.cargarUsuarios()));
         tvUsuarios.refresh();
+    }
+
+    public void dobleClick() {
+        tvUsuarios.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 1) {
+                    System.out.println("Click");
+                    usuarioSeleccionado = tvUsuarios.getSelectionModel().getSelectedItem();
+                    mostrarcontenidoSeleccionado();
+                }
+            }
+        });
+    }
+
+    public void registrarUsuario(ActionEvent actionEvent) {
+        controladorPrincipal.registrar(txtId.getId(), txtNombre.getText(), txtCorreo.getText(),txtTelefono.getText(), txtPass.getText());
+        controladorPrincipal.mostrarMensaje("Exito", "Usuario Creado con exito", Alert.AlertType.INFORMATION);
+        inicializarTabla();
+        limpiarFormulario();
+    }
+
+    public void mostrarcontenidoSeleccionado() {
+        txtId.setText(usuarioSeleccionado.getId());
+        txtNombre.setText(usuarioSeleccionado.getNombre());
+        txtCorreo.setText(usuarioSeleccionado.getCorreo());
+        txtTelefono.setText(usuarioSeleccionado.getTelefono());
+        txtPass.setText(usuarioSeleccionado.getContraseña());
+    }
+
+    public void editarUsuario(ActionEvent actionEvent) {
+        Usuario usuarioSeleccionado = tvUsuarios.getSelectionModel().getSelectedItem();
+
+        if (usuarioSeleccionado == null) {
+            controladorPrincipal.mostrarMensaje("Error", "Debes seleccionar un usuario para actualizar", Alert.AlertType.ERROR);
+            return;
+        }
+
+        boolean actualizado = controladorPrincipal.editarUsuario(
+                txtNombre.getText(),
+                txtCorreo.getText(),
+                txtTelefono.getText(),
+                txtPass.getText(),
+                usuarioSeleccionado
+        );
+
+        if (actualizado) {
+            controladorPrincipal.mostrarMensaje("Éxito", "Usuario actualizado correctamente", Alert.AlertType.INFORMATION);
+            inicializarTabla();
+            limpiarFormulario();
+        } else {
+            controladorPrincipal.mostrarMensaje("Error", "No se pudo actualizar el usuario", Alert.AlertType.ERROR);
+        }
+    }
+
+    public void eliminarUsuario(ActionEvent actionEvent) {
+        if (usuarioSeleccionado == null) {
+            controladorPrincipal.mostrarMensaje("Error", "Debes seleccionar un usuario para eliminar", Alert.AlertType.ERROR);
+            return;
+        }
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION, "¿Seguro que quieres eliminar el usuario '" + usuarioSeleccionado.getNombre() + "'?", ButtonType.YES, ButtonType.NO);
+        confirmacion.showAndWait();
+
+        if (confirmacion.getResult() == ButtonType.YES) {
+            boolean eliminado = controladorPrincipal.eliminarGrupo(usuarioSeleccionado.getId());
+
+            if (eliminado) {
+                controladorPrincipal.mostrarMensaje("Éxito", "Usuario eliminado correctamente", Alert.AlertType.INFORMATION);
+                inicializarTabla();
+            } else {
+                controladorPrincipal.mostrarMensaje("Error", "No se pudo eliminar el usuario", Alert.AlertType.ERROR);
+            }
+        }
+    }
+
+    private void limpiarFormulario() {
+        usuarioSeleccionado = null;
+        txtId.clear();
+        txtNombre.clear();
+        txtCorreo.clear();
+        txtTelefono.clear();
+        txtPass.clear();
+    }
+
+    public void Limpiar(ActionEvent actionEvent) {
+        limpiarFormulario();
     }
 
     public UsuariosAdminControlador()throws Exception {

@@ -58,12 +58,12 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <Button onAction="#misGrupos" fx:id="btnMisGrupos" layoutX="201.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
+        <Button fx:id="btnMisGrupos" layoutX="304.0" layoutY="379.0" mnemonicParsing="false" onAction="#misGrupos" prefHeight="24.0" prefWidth="78.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Mis Grupos " textFill="#010035">
             <font>
-                <Font name="Candara" size="14.0" />
+                <Font name="Candara" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="bntVolver" layoutX="134.0" layoutY="380.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="Volver" textFill="#010035" visible="false">
+        <Button fx:id="bntVolver" layoutX="267.0" layoutY="379.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="⬅" textFill="#010035" visible="false">
             <font>
                 <Font name="Candara" size="12.0" />
             </font>
