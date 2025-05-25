@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.braincircle.controlers.ChatGruposControlador">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="415.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.ChatGruposControlador">
 
     <!-- Encabezado -->
-    <Label layoutX="20" layoutY="10" text="Grupo de Estudio: [Tema]"
-           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label layoutX="19.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Grupo de Estudio: [Tema]" />
 
     <!-- Miembros del grupo -->
-    <Label layoutX="20" layoutY="50" text="Miembros del grupo:" style="-fx-font-weight: bold;"/>
-    <FlowPane layoutX="180" layoutY="50" hgap="10" vgap="5">
-        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" layoutX="30.0" layoutY="130.0" pannable="true" prefHeight="111.0" prefWidth="350.0" vbarPolicy="ALWAYS">
+    <Label layoutX="260.0" layoutY="28.0" style="-fx-font-weight: bold;" text="Miembros del grupo:" />
+    <FlowPane hgap="5" layoutX="195.0" layoutY="53.0" prefHeight="80.0" prefWidth="178.0" vgap="2">
+        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" layoutX="30.0" layoutY="130.0" pannable="true" prefHeight="80.0" prefWidth="206.0" style="-fx-border-color: #010035; -fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" vbarPolicy="ALWAYS">
             <content>
-                <GridPane fx:id="gridUser" alignment="CENTER" hgap="10.0" prefHeight="102.0" prefWidth="335.0" vgap="10.0" />
+                <GridPane fx:id="gridUser" alignment="CENTER" hgap="5.0" prefHeight="65.0" prefWidth="160.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" vgap="5.0" />
             </content>
         </ScrollPane>
     </FlowPane>
 
     <!-- Chat grupal -->
-    <Label layoutX="20" layoutY="100" text="Chat grupal:" style="-fx-font-weight: bold;"/>
-    <TextArea fx:id="chatArea" layoutX="20" layoutY="130" prefWidth="560" prefHeight="150" editable="false" wrapText="true"/>
-    <TextField fx:id="messageField" layoutX="20" layoutY="290" prefWidth="450" promptText="Escribe un mensaje..."/>
-    <Button onAction="#Enviar" fx:id="sendButton" layoutX="480" layoutY="290" text="Enviar"/>
+    <Label layoutX="14.0" layoutY="139.0" style="-fx-font-weight: bold;" text="Chat grupal:" />
+    <TextArea fx:id="chatArea" editable="false" layoutX="14.0" layoutY="160.0" prefHeight="164.0" prefWidth="386.0" style="-fx-border-color: #010035; -fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" wrapText="true">
+      <font>
+         <Font name="Candara" size="12.0" />
+      </font></TextArea>
+    <TextField fx:id="messageField" layoutX="14.0" layoutY="329.0" prefHeight="26.0" prefWidth="353.0" promptText="Escribe un mensaje..." style="-fx-border-color: #010035; -fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;">
+      <font>
+         <Font name="Candara" size="12.0" />
+      </font></TextField>
+    <Button fx:id="sendButton" layoutX="374.0" layoutY="329.0" onAction="#Enviar" prefHeight="26.0" prefWidth="28.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="⬆" />
 
     <!-- Documentos compartidos -->
-    <Label layoutX="20" layoutY="340" text="Documentos compartidos:" style="-fx-font-weight: bold;"/>
-    <FlowPane fx:id="contenidosPane" layoutX="200" layoutY="340" hgap="10" vgap="5">
-
+    <Label layoutX="17.0" layoutY="28.0" style="-fx-font-weight: bold;" text="Documentos compartidos:" />
+    <FlowPane fx:id="contenidosPane" hgap="10" layoutX="14.0" layoutY="53.0" prefHeight="80.0" prefWidth="162.0" style="-fx-border-color: #010035; -fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" vgap="5">
     </FlowPane>
-    <Button onAction="#subirRecursos" fx:id="uploadButton" layoutX="20" layoutY="390" text="Subir recurso"/>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="58.0" layoutY="364.0" stroke="BLACK" strokeType="INSIDE" width="412.0" />
+    <Button fx:id="uploadButton" layoutX="327.0" layoutY="380.0" onAction="#subirRecursos" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="⬆ recurso" />
+
+    <ImageView fitHeight="34.0" fitWidth="200.0" layoutX="55.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@img/logo6.png" />
+        </image>
+    </ImageView>
+
+    <ImageView fitHeight="34.0" fitWidth="200.0" layoutX="15.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@img/logo7.png" />
+        </image>
+    </ImageView>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="4.0" layoutY="419.0" stroke="#c1ff72" strokeType="INSIDE" width="412.0" />
+   <Button layoutX="289.0" layoutY="380.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #c1ff72; -fx-background-radius: 10; -fx-border-radius: 10;" text="⬅" />
 
 </AnchorPane>

@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -188,6 +189,10 @@ public class ChatGruposControlador implements Parametrizable, ChatListener {
                 actualizarChat();
             }
         });
+    }
+    public void volverAlInicio(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
 }

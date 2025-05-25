@@ -67,4 +67,5 @@ public class ChatControlador implements Parametrizable,ChatListener {
             Platform.runLater(this::cargarMensajes);
         }
     }
+
 }
