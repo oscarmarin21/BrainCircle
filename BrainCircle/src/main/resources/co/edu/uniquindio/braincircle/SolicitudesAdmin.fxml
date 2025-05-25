@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SolicitudesAdminControlador">
+   <children>
+      <!-- Header -->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="646.0" stroke="#010035" strokeType="INSIDE" width="900.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="7.0" layoutY="693.0" stroke="#c1ff72" strokeType="INSIDE" width="900.0" />
+      
+      <!-- Logo -->
+      <ImageView fitHeight="34.0" fitWidth="46.0" layoutX="14.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo7.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="200.0" layoutX="51.0" layoutY="656.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo6.png" />
+         </image>
+      </ImageView>
+      
+      <!-- Navigation Header -->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="26.0" layoutX="-3.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="180.0" />
+      <Label layoutX="15.0" layoutY="3.0" text="Gestión de Solicitudes" textFill="#010035">
+         <font>
+            <Font name="Candara Bold" size="14.0" />
+         </font>
+      </Label>
+      
+      <!-- Navigation Buttons -->
+      <Button onAction="#volverAlPanel" layoutX="780.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #010035;" text="← Panel Admin" textFill="#010035">
+         <font>
+            <Font name="Candara Bold" size="12.0" />
+         </font>
+      </Button>
+      
+      <Button onAction="#actualizarSolicitudes" layoutX="670.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="🔄 Actualizar" textFill="#010035">
+         <font>
+            <Font name="Candara Bold" size="12.0" />
+         </font>
+      </Button>
+      
+      <!-- Line separator -->
+      <Line endX="799.0" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
+      
+      <!-- Solicitud Actual Section -->
+      <VBox layoutX="30.0" layoutY="40.0" prefHeight="350.0" prefWidth="420.0" spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #010035; -fx-border-radius: 10; -fx-border-width: 2;">
+         <children>
+            <Label text="📋 Solicitud Actual" textFill="#010035">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Título -->
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Título:" textFill="#010035">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTituloActual" text="No hay solicitudes" textFill="#333333" wrapText="true">
+                     <font>
+                        <Font name="Candara" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <!-- Info Row -->
+            <HBox spacing="20.0">
+               <children>
+                  <Label fx:id="lblPropietarioActual" text="Solicitante: -" textFill="#666666">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrioridadActual" text="Prioridad: -" textFill="#666666">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            
+            <!-- Mensaje -->
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Mensaje:" textFill="#010035">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtMensajeActual" editable="false" prefHeight="80.0" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 5;" wrapText="true">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </VBox>
+            
+            <!-- Respuesta -->
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Tu Respuesta:" textFill="#010035">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtRespuesta" prefHeight="80.0" promptText="Escribe aquí tu respuesta a la solicitud..." style="-fx-background-color: white; -fx-border-color: #010035; -fx-border-radius: 5;" wrapText="true">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </VBox>
+            
+            <!-- Botones de Acción -->
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Button fx:id="btnSiguiente" onAction="#siguienteSolicitud" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #ffffff; -fx-border-color: #010035; -fx-background-radius: 8; -fx-border-radius: 8;" text="⏭️ Siguiente" textFill="#010035">
+                     <font>
+                        <Font name="Candara Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnResponder" onAction="#responderSolicitud" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #010035; -fx-background-radius: 8; -fx-border-radius: 8;" text="✅ Responder" textFill="#c1ff72">
+                     <font>
+                        <Font name="Candara Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+      
+      <!-- Tabla de Solicitudes Pendientes -->
+      <VBox layoutX="470.0" layoutY="40.0" prefHeight="350.0" prefWidth="400.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="📋 Cola de Solicitudes Pendientes" textFill="#010035">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalPendientes" text="Total: 0" textFill="#666666">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            
+            <TableView fx:id="tablaSolicitudesPendientes" prefHeight="310.0" style="-fx-background-color: white; -fx-border-color: #010035; -fx-border-radius: 8;">
+              <columns>
+                <TableColumn fx:id="colTitulo" prefWidth="160.0" text="Título" />
+                <TableColumn fx:id="colPropietario" prefWidth="120.0" text="Solicitante" />
+                <TableColumn fx:id="colPrioridad" prefWidth="100.0" text="Prioridad" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      
+      <!-- Estado/Mensajes -->
+      <Label fx:id="lblEstadoSolicitud" alignment="CENTER" layoutX="30.0" layoutY="410.0" prefHeight="30.0" prefWidth="840.0" textAlignment="CENTER">
+         <font>
+            <Font name="Candara Bold" size="14.0" />
+         </font>
+      </Label>
+      
+      <!-- Información adicional -->
+      <VBox layoutX="30.0" layoutY="450.0" prefHeight="180.0" prefWidth="840.0" spacing="10.0" style="-fx-background-color: #f0f8ff; -fx-background-radius: 8; -fx-border-color: #c1ff72; -fx-border-radius: 8; -fx-border-width: 2;">
+         <children>
+            <Label text="ℹ️ Información del Sistema de Solicitudes" textFill="#010035">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="• Las solicitudes se procesan por orden de prioridad: ALTA → MEDIA → BAJA" textFill="#333333">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="• Usa 'Responder' para contestar y marcar como completada la solicitud actual" textFill="#333333">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="• Usa 'Siguiente' para pasar a la próxima solicitud sin responder la actual" textFill="#333333">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="• La tabla muestra todas las solicitudes pendientes en la cola" textFill="#333333">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="• Los estudiantes pueden ver sus respuestas en su panel de solicitudes" textFill="#333333">
+                     <font>
+                        <Font name="Candara" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+      
+      <!-- Decorative Elements -->
+      <Circle fill="#c1ff72" layoutX="870.0" layoutY="60.0" opacity="0.3" radius="15.0" />
+      <Circle fill="#010035" layoutX="20.0" layoutY="450.0" opacity="0.1" radius="8.0" />
+      
+   </children>
+</AnchorPane> 

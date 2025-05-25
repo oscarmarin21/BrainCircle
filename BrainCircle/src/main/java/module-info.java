@@ -6,6 +6,7 @@ module co.edu.uniquindio.braincircle {
 
 
     opens co.edu.uniquindio.braincircle to javafx.fxml;
+    opens co.edu.uniquindio.braincircle.models to javafx.base;
     exports co.edu.uniquindio.braincircle;
     exports co.edu.uniquindio.braincircle.controlers;
     opens co.edu.uniquindio.braincircle.controlers to javafx.fxml;
