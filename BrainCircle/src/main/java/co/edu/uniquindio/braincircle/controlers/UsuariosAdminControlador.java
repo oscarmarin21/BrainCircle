@@ -241,4 +241,9 @@ public class UsuariosAdminControlador {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/GruposEstudioAdmin.fxml","",null);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
+
+    public void Solicitudes(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/SolicitudesAdmin.fxml","",null);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
 }

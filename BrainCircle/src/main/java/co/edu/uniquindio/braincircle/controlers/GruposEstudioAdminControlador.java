@@ -91,6 +91,10 @@ public class GruposEstudioAdminControlador {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/PanelAdmin.fxml", "", null);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
+    public void Solicitudes(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/SolicitudesAdmin.fxml","",null);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
 
     public void inicializarMateria() {
         cmbMateria.getItems().addAll(Materia.values());

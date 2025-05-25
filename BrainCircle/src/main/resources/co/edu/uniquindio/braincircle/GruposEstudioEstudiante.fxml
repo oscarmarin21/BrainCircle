@@ -35,7 +35,7 @@
         <Line endX="299.0" endY="2.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
-        <ScrollPane layoutY="72.0" prefHeight="294.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
+        <ScrollPane layoutY="36.0" prefHeight="315.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
             <content>
                 <GridPane fx:id="gridPaneGrupos" alignment="CENTER" hgap="10.0" vgap="10.0">
                 </GridPane>
@@ -68,8 +68,5 @@
                 <Font name="Candara" size="12.0" />
             </font>
         </Button>
-        <ComboBox fx:id="cmbTipo" layoutX="189.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Tipo" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" />
-        <TextField fx:id="txtNombre" layoutX="14.0" layoutY="37.0" prefHeight="27.0" prefWidth="158.0" promptText="Nombre" style="-fx-background-color: #ffffff; -fx-border-color: #010035;-fx-background-radius: 10; -fx-border-radius: 10;" />
-        <Button fx:id="btnBuscar" layoutX="359.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="🔍" />
     </children>
 </AnchorPane>

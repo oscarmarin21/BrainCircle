@@ -50,6 +50,11 @@ public class EditarPublicacionConrolador implements Parametrizable {
     private String idContenido;
     private String idUsuario;
 
+    public void volver (ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml","Admin Contenido", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
+
     @Override
     public void datosBrainCircle(Object... parametros) {
         if (parametros == null || parametros.length == 0 || parametros[0] == null  || parametros.length == 1 || parametros[1] == null) {
@@ -107,6 +112,7 @@ public class EditarPublicacionConrolador implements Parametrizable {
                 chk.setDisable(isSelected);
             }
         }
+
 
         // Manejo de campos relacionados
         if (checkBoxActivo == chkLink) {

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SolicitudesAdminControlador">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SolicitudesAdminControlador">
    <children>
       <!-- Header -->
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="54.0" layoutY="646.0" stroke="#010035" strokeType="INSIDE" width="900.0" />
@@ -34,13 +34,13 @@
       </Label>
       
       <!-- Navigation Buttons -->
-      <Button onAction="#volverAlPanel" layoutX="780.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #010035;" text="← Panel Admin" textFill="#010035">
+      <Button layoutX="780.0" layoutY="-2.0" mnemonicParsing="false" onAction="#volverAlPanel" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #010035;" text="← Panel Admin" textFill="#010035">
          <font>
             <Font name="Candara Bold" size="12.0" />
          </font>
       </Button>
       
-      <Button onAction="#actualizarSolicitudes" layoutX="670.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="🔄 Actualizar" textFill="#010035">
+      <Button layoutX="670.0" layoutY="-2.0" mnemonicParsing="false" onAction="#actualizarSolicitudes" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #c1ff72;-fx-background-radius: 10; -fx-border-radius: 10;" text="🔄 Actualizar" textFill="#010035">
          <font>
             <Font name="Candara Bold" size="12.0" />
          </font>
@@ -98,7 +98,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="txtMensajeActual" editable="false" prefHeight="80.0" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 5;" wrapText="true">
+                  <TextArea fx:id="txtMensajeActual" editable="false" prefHeight="80.0" style="-fx-background-color: white; -fx-border-color: #010035; -fx-border-radius: 5;" wrapText="true">
                      <font>
                         <Font name="Candara" size="12.0" />
                      </font>
@@ -227,4 +227,4 @@
       <Circle fill="#010035" layoutX="20.0" layoutY="450.0" opacity="0.1" radius="8.0" />
       
    </children>
-</AnchorPane> 
+</AnchorPane>
