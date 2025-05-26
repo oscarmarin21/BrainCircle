@@ -2,6 +2,7 @@ package co.edu.uniquindio.braincircle.controlers;
 
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.models.Contenido;
+import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -41,12 +42,18 @@ public class AñadirPublicacionControlador implements Parametrizable {
     private File archivoSeleccionado;
     private File imagenSeleccionada;
     private File videoSeleccionado;
+    private Usuario usuarioActual;
 
     private ControladorPrincipal controladorPrincipal;
     private String idUsuario;
 
     public AñadirPublicacionControlador() throws Exception {
         controladorPrincipal = ControladorPrincipal.getInstancia();
+    }
+
+    public void volver (ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", usuarioActual.getId());
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 
     @Override

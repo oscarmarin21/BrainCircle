@@ -39,6 +39,11 @@ public class EditarPerfilControlador implements Parametrizable {
     private ControladorPrincipal controladorPrincipal;
     private String idUsuario;
     private Usuario usuarioActual;
+
+    public void volver(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", usuarioActual.getId());
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
     
     @FXML
     public void initialize() {
