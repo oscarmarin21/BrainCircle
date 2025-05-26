@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="420.0" prefWidth="401.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GruposEstudioControlador">
+<AnchorPane prefHeight="420.0" prefWidth="401.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GruposEstudioControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="55.0" layoutY="367.0" stroke="#010035" strokeType="INSIDE" width="401.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="8.0" layoutY="413.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
@@ -16,31 +23,31 @@
                 <Image url="@img/logo7.png" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="34.0" layoutX="156.0" layoutY="-7.0" stroke="WHITE" strokeType="INSIDE" width="138.0" />
-        <Label layoutX="173.0" layoutY="5.0" text="Grupos de Estudio" textFill="#010035">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="34.0" layoutX="179.0" layoutY="-5.0" stroke="WHITE" strokeType="INSIDE" width="138.0" />
+        <Label layoutX="185.0" layoutY="4.0" text="Grupos de Estudio 💬" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Inicio" textFill="#010035">
+        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#volverAlInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="🏠" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnPublicacion" layoutX="57.0" layoutY="-1.0" mnemonicParsing="false" onAction="#misPublicaciones" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Publicaciones" textFill="#010035">
+        <Button fx:id="btnPublicacion" layoutX="57.0" layoutY="-1.0" mnemonicParsing="false" onAction="#misPublicaciones" prefHeight="27.0" prefWidth="120.0" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Publicaciones 📋" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
         <Line endX="299.0" endY="2.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
         <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
-        <Line endX="-83.0" endY="-94.0" layoutX="241.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
+        <Line endX="-83.0" endY="-94.0" layoutX="262.0" layoutY="120.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <ScrollPane layoutY="36.0" prefHeight="315.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
             <content>
                 <GridPane fx:id="gridPaneGrupos" alignment="CENTER" hgap="10.0" vgap="10.0">
                 </GridPane>
             </content></ScrollPane>
-        <Line endX="-83.0" endY="-94.0" layoutX="377.0" layoutY="119.0" startX="-83.0" startY="-119.0">
+        <Line endX="-83.0" endY="-94.0" layoutX="399.0" layoutY="119.0" startX="-83.0" startY="-119.0">
             <stroke>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>

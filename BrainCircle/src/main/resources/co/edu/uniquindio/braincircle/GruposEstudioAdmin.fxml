@@ -27,37 +27,37 @@
                 <Image url="@img/logo7.png" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="34.0" layoutX="126.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" width="132.0" />
-        <Label layoutX="139.0" layoutY="3.0" text="Grupos de Estudio" textFill="#010035">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="27.0" layoutX="84.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" width="144.0" />
+        <Label layoutX="93.0" layoutY="4.0" text="Grupos de Estudio 💬" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#btnInicio" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #ffffff;" text="Inicio" textFill="#010035">
+        <Button fx:id="btnInicio" layoutX="-1.0" mnemonicParsing="false" onAction="#btnInicio" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: #ffffff;" text="🏠" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnUsuarios" layoutX="58.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Usuarios" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #ffffff;" text="Usuarios" textFill="#010035">
+        <Button fx:id="btnUsuarios" layoutX="42.0" mnemonicParsing="false" onAction="#Usuarios" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: #ffffff;" text="👤" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btnPublicaciones" layoutX="261.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Publicaciones" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Publicaciones" textFill="#010035">
+        <Button fx:id="btnPublicaciones" layoutX="228.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Publicaciones" prefHeight="27.0" prefWidth="126.0" style="-fx-background-color: #ffffff;" text="Publicaciones 📋" textFill="#010035">
             <font>
                 <Font name="Candara" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="370.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Solicitudes" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Solicitudes">
+        <Button layoutX="354.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Solicitudes" style="-fx-background-color: #ffffff;-fx-background-radius: 10; -fx-border-radius: 10;" text="Solicitudes 🔔">
             <font>
                 <Font name="Candara" size="14.0" />
             </font></Button>
         <Line endX="393.0" fill="#010033" layoutX="101.0" layoutY="25.0" startX="-100.0" stroke="#010035" />
-        <Line endX="-83.0" endY="-94.0" layoutX="141.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
-        <Line endX="-83.0" endY="-94.0" layoutX="214.0" layoutY="118.0" startX="-83.0" startY="-119.0" stroke="#010035" />
+        <Line endX="-83.0" endY="-94.0" layoutX="125.0" layoutY="119.0" startX="-83.0" startY="-119.0" stroke="#010035" />
+        <Line endX="-83.0" endY="-94.0" layoutX="169.0" layoutY="118.0" startX="-83.0" startY="-119.0" stroke="#010035" />
         <GridPane fx:id="gridPaneContenido" alignment="CENTER" hgap="10.0" layoutY="67.0" vgap="10.0">
         </GridPane>
-        <Line endX="-83.0" endY="-94.0" layoutX="341.0" layoutY="118.0" startX="-83.0" startY="-119.0">
+        <Line endX="-83.0" endY="-94.0" layoutX="311.0" layoutY="118.0" startX="-83.0" startY="-119.0">
             <stroke>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
@@ -125,7 +125,25 @@
             <Font name="Candara" size="16.0" />
          </font>
       </Label>
-      <Line endX="-83.0" endY="-94.0" layoutX="453.0" layoutY="119.0" startX="-83.0" startY="-119.0">
+      <Line endX="-83.0" endY="-94.0" layoutX="437.0" layoutY="118.0" startX="-83.0" startY="-119.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.003921568859368563" blue="0.2078431397676468" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.003921568859368563" blue="0.2078431397676468" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-83.0" endY="-94.0" layoutX="537.0" layoutY="118.0" startX="-83.0" startY="-119.0">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

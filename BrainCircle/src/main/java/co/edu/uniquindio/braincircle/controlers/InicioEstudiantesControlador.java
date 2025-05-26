@@ -143,4 +143,9 @@ public class InicioEstudiantesControlador implements Parametrizable {
         controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/GruposEstudioEstudiante.fxml", "", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
+
+    public void pag(ActionEvent actionEvent) {
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/PagUser.fxml","Inicio", idUsuario);
+        controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
+    }
 }
