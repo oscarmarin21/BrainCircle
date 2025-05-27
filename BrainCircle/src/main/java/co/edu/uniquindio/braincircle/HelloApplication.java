@@ -36,6 +36,10 @@ public class HelloApplication extends Application {
         controlador.conectarUsuarios(luisa, mafe);
 
         controlador.crearGrupoEstudio("g1", "Ingles I", "Grupo de estudio de estructuras básicas de ingles", Materia.INGLES);
+        controlador.crearGrupoEstudio("g2", "Estructura", "Grupo de estudio de estructuras básicas de programación", Materia.ESTRUCTURA);
+        controlador.crearGrupoEstudio("g3", "Biología I", "Grupo de estudio de teoria fundamental bilogica", Materia.BIOLOGIA);
+
+
         controlador.agregarContenido(new Contenido<>("1", "Estructuras", Materia.ESTRUCTURA.toString(), "ARCHIVO", anye.getId(), "/C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
         controlador.agregarContenido(new Contenido<>("2", "Álgebra", Materia.MATEMATICAS.toString(), "VIDEO", anye.getId(), "video.mp4"));
         controlador.agregarContenido(new Contenido<>("3", "Sistemas", Materia.ESTRUCTURA.toString(), "ARCHIVO", luisa.getId(), "C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));

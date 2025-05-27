@@ -41,7 +41,6 @@ public class AñadirPublicacionControlador implements Parametrizable {
     private File archivoSeleccionado;
     private File imagenSeleccionada;
     private File videoSeleccionado;
-    private Usuario usuarioActual;
 
     private ControladorPrincipal controladorPrincipal;
     private String idUsuario;
@@ -51,7 +50,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
     }
 
     public void volver (ActionEvent actionEvent) {
-        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", usuarioActual.getId());
+        controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/InicioEstudiantes.fxml", "Inicio", idUsuario);
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
     }
 

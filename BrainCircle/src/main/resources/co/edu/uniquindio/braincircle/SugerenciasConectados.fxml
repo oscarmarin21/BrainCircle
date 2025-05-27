@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" prefHeight="67.0" prefWidth="110.0" spacing="5" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
+<HBox alignment="CENTER" prefHeight="74.0" prefWidth="118.0" spacing="5" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
 
     <VBox alignment="CENTER" prefHeight="71.0" prefWidth="98.0" spacing="3">
-      <Pane prefHeight="46.0" prefWidth="98.0">
+      <Pane prefHeight="39.0" prefWidth="98.0">
          <children>
               <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="5.0" preserveRatio="true">
                   <image>

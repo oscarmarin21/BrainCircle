@@ -35,7 +35,7 @@ public class InicioSesionControlador {
             controladorPrincipal.mostrarMensaje("Error", "Ingrese su contraseña.",AlertType.ERROR);
             return;
         }
-        if(correo.equals("arepitas.com") && contrasena.equals("carnemolida")){
+        if(correo.equals("admin.com") && contrasena.equals("12")){
             controladorPrincipal.navegar("/co/edu/uniquindio/braincircle/PanelAdmin.fxml", "Graficas Admin", null);
         }
         else if (autenticarUsuario(correo, contrasena)) {

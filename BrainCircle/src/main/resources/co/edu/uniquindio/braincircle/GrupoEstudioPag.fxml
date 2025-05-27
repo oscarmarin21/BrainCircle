@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="147.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GrupoEstudioPagControlador">
+<HBox prefHeight="163.0" prefWidth="299.0" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.GrupoEstudioPagControlador">
     <Pane prefHeight="126.0" prefWidth="168.0">
         <children>
             <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
