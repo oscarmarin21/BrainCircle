@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="420.0" prefWidth="401.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.PublicacionesControlador">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#010035" height="55.0" layoutY="367.0" stroke="#010035" strokeType="INSIDE" width="401.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1ff72" height="8.0" layoutY="413.0" stroke="#c1ff72" strokeType="INSIDE" width="400.0" />
