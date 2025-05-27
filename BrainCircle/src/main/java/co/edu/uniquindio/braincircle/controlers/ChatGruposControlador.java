@@ -83,7 +83,7 @@ public class ChatGruposControlador implements Parametrizable, ChatListener {
                     SugerenciasConectados PagUserControler = fxmlLoader.getController();
                     PagUserControler.setData(estudiante, tipo, idUsuario_act);
 
-                    if (column == 3) {
+                    if (column == 2) {
                         column = 0;
                         row++;
                     }

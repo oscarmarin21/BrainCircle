@@ -93,7 +93,7 @@ public class InicioEstudiantesControlador implements Parametrizable {
                     SugerenciasConectados PagUserControler = fxmlLoader.getController();
                     PagUserControler.setData(estudiante, tipo, idUsuario_act);
 
-                    if (column == 3) {
+                    if (column == 2) {
                         column = 0;
                         row++;
                     }
@@ -123,7 +123,7 @@ public class InicioEstudiantesControlador implements Parametrizable {
                     SugerenciasConectados PagUserControler = fxmlLoader.getController();
                     PagUserControler.setData(estudiante, tipo, idUsuario_act);
 
-                    if (column == 3) {
+                    if (column == 2) {
                         column = 0;
                         row++;
                     }

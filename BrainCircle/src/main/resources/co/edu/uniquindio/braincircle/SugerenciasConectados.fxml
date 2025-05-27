@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" prefHeight="89.0" prefWidth="129.0" spacing="5" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
+<HBox alignment="CENTER" prefHeight="51.0" prefWidth="156.0" spacing="5" style="-fx-background-color: #ffffff; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.braincircle.controlers.SugerenciasConectados">
 
     <VBox alignment="CENTER" prefHeight="87.0" prefWidth="143.0" spacing="3">
-      <Pane prefHeight="39.0" prefWidth="98.0">
-         <children>
-              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="5.0" preserveRatio="true">
-                  <image>
-                      <Image url="@img/user.png" />
-                  </image>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-              </ImageView>
-         </children>
-      </Pane>
          <HBox alignment="CENTER" prefHeight="22.0" prefWidth="115.0" spacing="5">
-             <Label fx:id="lblAutor" maxWidth="60.0" text="Nombre" textAlignment="CENTER" wrapText="true">
+             <Label fx:id="lblAutor" maxWidth="60.0" text="👤 Nombre" textAlignment="CENTER" wrapText="true">
                  <font>
                      <Font size="10.0" />
                  </font>
