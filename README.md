@@ -1,4 +1,7 @@
 # BrainCircle
+Datos del Admin:
+correo: admin.com
+contraseña: 12
 
 BrainCircle 🧠⭕️ es una plataforma educativa interactiva que simula una red social enfocada en el aprendizaje colaborativo entre estudiantes.
 Su objetivo principal es facilitar el intercambio de recursos académicos, la formación de grupos de estudio y la conexión entre usuarios 
