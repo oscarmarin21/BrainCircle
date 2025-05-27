@@ -1,15 +1,13 @@
 package co.edu.uniquindio.braincircle.controlers;
-
+import co.edu.uniquindio.braincircle.Enums.Materia;
+import co.edu.uniquindio.braincircle.Enums.Tipo;
 import co.edu.uniquindio.braincircle.Services.Parametrizable;
 import co.edu.uniquindio.braincircle.models.Contenido;
 import co.edu.uniquindio.braincircle.models.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -17,11 +15,12 @@ import java.io.File;
 import java.util.UUID;
 
 public class AñadirPublicacionControlador implements Parametrizable {
-
+    @FXML
+    public ComboBox<Materia> cmbTipo;
     @FXML
     public TextField txtNombre;
-    @FXML
-    public TextField txtDescription;
+//    @FXML
+//    public TextField txtDescription;
     @FXML
     public TextField txtLink;
     @FXML
@@ -73,6 +72,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
         chkArchivo.selectedProperty().addListener((obs, oldVal, newVal) -> onChange(chkArchivo, newVal));
         chkImagen.selectedProperty().addListener((obs, oldVal, newVal) -> onChange(chkImagen, newVal));
         chkVideo.selectedProperty().addListener((obs, oldVal, newVal) -> onChange(chkVideo, newVal));
+        cmbTipo.getItems().addAll(Materia.values());
     }
 
     private void onChange(CheckBox checkBoxActivo, boolean isSelected) {
@@ -160,7 +160,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
         }
 
         String titulo = txtNombre.getText();
-        String tema = txtDescription.getText();
+        String tema = cmbTipo.getValue().toString();
         String tipoSeleccionado = "";
         String contenidoFinal = "";
 
@@ -233,7 +233,7 @@ public class AñadirPublicacionControlador implements Parametrizable {
 
     private void limpiarFormulario() {
         txtNombre.clear();
-        txtDescription.clear();
+        cmbTipo.setItems(null);
         txtLink.clear();
         archivoSeleccionado = null;
         imagenSeleccionada = null;

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.braincircle.controlers;
 
+import co.edu.uniquindio.braincircle.Enums.Materia;
 import co.edu.uniquindio.braincircle.Enums.Tipo;
 import co.edu.uniquindio.braincircle.models.Contenido;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,8 +30,10 @@ public class PublicacionesAdminControlador {
     public TableColumn<Contenido, String> tcArchivo;
     @FXML
     public TextField txtNombre;
+//    @FXML
+//    public TextField txtDescripcion;
     @FXML
-    public TextField txtDescripcion;
+    public ComboBox<Materia> cmbTipo;
     @FXML
     public TextField txtLink;
     @FXML
@@ -67,6 +70,8 @@ public class PublicacionesAdminControlador {
         chkVideo.selectedProperty().addListener((obs, oldVal, newVal) -> onChange(chkVideo, newVal));
         inicializarValoresTabla();
         dobleClick();
+        cmbTipo.getItems().addAll(Materia.values());
+
     }
     public void inicializarValoresTabla() {
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAutor().toString()));
@@ -95,7 +100,7 @@ public class PublicacionesAdminControlador {
     public void mostrarcontenidoSeleccionado() {
         if (contenidoSeleccionado != null) {
             txtNombre.setText(contenidoSeleccionado.getAutor().toString());
-            txtDescripcion.setText(contenidoSeleccionado.getTema().toString());
+            cmbTipo.setValue(Materia.valueOf(contenidoSeleccionado.getTema().toString()));
             if(contenidoSeleccionado.getTipo().toString().equals("ARCHIVO")){
                 btnArchivo.setText(contenidoSeleccionado.getConte().toString());
                 archivoSeleccionado = new File(contenidoSeleccionado.getConte().toString());
@@ -228,7 +233,7 @@ public class PublicacionesAdminControlador {
 
     private void limpiarFormulario() {
         txtNombre.clear();
-        txtDescripcion.clear();
+        cmbTipo.setValue(null);
         txtLink.clear();
         archivoSeleccionado = null;
         imagenSeleccionada = null;
@@ -263,7 +268,7 @@ public class PublicacionesAdminControlador {
         }
 
         String titulo = txtNombre.getText();
-        String tema = txtDescripcion.getText();
+        String tema = cmbTipo.getValue().toString();
         String tipoSeleccionado = "";
         String contenidoFinal = "";
 
@@ -308,7 +313,7 @@ public class PublicacionesAdminControlador {
         }
 
         String titulo = txtNombre.getText();
-        String tema = txtDescripcion.getText();
+        String tema = cmbTipo.getValue().toString();
         String tipoSeleccionado = "";
         String contenidoFinal = "";
 

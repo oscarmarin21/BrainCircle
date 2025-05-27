@@ -156,8 +156,19 @@ public class ControladorPrincipal<T extends Comparable<T>> implements ServicioBr
 
     @Override
     public void conectarUsuarios(Usuario u1, Usuario u2) {
-       brainCircle.conectarUsuarios(u1,u2);
+        brainCircle.conectarUsuarios(u1, u2);
+
+        if (!u1.getConexiones().contains(u2)) {
+            u1.getConexiones().add(u2);
+        }
+        if (!u2.getConexiones().contains(u1)) {
+            u2.getConexiones().add(u1);
+        }
+
+        System.out.println("✅ Ahora " + u1.getNombre() + " está conectado con: " +
+                u1.getConexiones().stream().map(Usuario::getNombre).toList());
     }
+
 
     @Override
     public Set<Usuario> obtenerConexiones(Usuario u) {

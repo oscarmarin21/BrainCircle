@@ -31,19 +31,15 @@ public class HelloApplication extends Application {
         Usuario mafe = controlador.ObtenerUserAutenticado("mafe@uniquindio.edu.co", "1234");
         Usuario santiago = controlador.ObtenerUserAutenticado("santiago@uniquindio.edu.co", "1234");
 
-        luisa.setConexiones(Arrays.asList(anye,mafe));
-        carlos.setConexiones(Arrays.asList(anye));
-        santiago.setConexiones(Arrays.asList(carlos));
-
         controlador.conectarUsuarios(anye, luisa);
         controlador.conectarUsuarios(luisa, carlos);
         controlador.conectarUsuarios(luisa, mafe);
 
         controlador.crearGrupoEstudio("g1", "Ingles I", "Grupo de estudio de estructuras básicas de ingles", Materia.INGLES);
-        controlador.agregarContenido(new Contenido<>("1", "Estructuras", "Programación", "ARCHIVO", anye.getId(), "/C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
-        controlador.agregarContenido(new Contenido<>("2", "Álgebra", "Matemáticas", "VIDEO", anye.getId(), "video.mp4"));
-        controlador.agregarContenido(new Contenido<>("3", "Sistemas", "BIOLOGIA", "ARCHIVO", luisa.getId(), "C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
-        controlador.agregarContenido(new Contenido<>("4", "Ecuaciones", "Biologia", "ARCHIVO", mafe.getNombre(), "doc.docx"));
+        controlador.agregarContenido(new Contenido<>("1", "Estructuras", Materia.ESTRUCTURA.toString(), "ARCHIVO", anye.getId(), "/C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
+        controlador.agregarContenido(new Contenido<>("2", "Álgebra", Materia.MATEMATICAS.toString(), "VIDEO", anye.getId(), "video.mp4"));
+        controlador.agregarContenido(new Contenido<>("3", "Sistemas", Materia.ESTRUCTURA.toString(), "ARCHIVO", luisa.getId(), "C:/Users/anyie/OneDrive/Documentos/2025-000390.pdf"));
+        controlador.agregarContenido(new Contenido<>("4", "Ecuaciones", Materia.BIOLOGIA.toString(), "ARCHIVO", mafe.getNombre(), "doc.docx"));
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));

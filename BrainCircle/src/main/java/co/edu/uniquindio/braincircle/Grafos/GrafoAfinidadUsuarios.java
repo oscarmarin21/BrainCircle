@@ -20,6 +20,7 @@ public class GrafoAfinidadUsuarios {
         agregarUsuario(u2);
         grafo.get(u1).add(u2);
         grafo.get(u2).add(u1);
+        System.out.println("AQUIIIIIIIIIIIIIIIIIIIIIIIIII"+u1+ ""+ u2+"");
     }
 
     public List<Usuario> obtenerConexiones(Usuario u) {
